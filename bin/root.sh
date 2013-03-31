@@ -1,5 +1,5 @@
 #!/bin/bash
 
-# This is a simple shortcut to avoid the typos when beoming root.
+# This is a simple shortcut to avoid the typos when becoming root.
 sudo su
 
