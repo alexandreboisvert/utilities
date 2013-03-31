@@ -1,4 +1,4 @@
-" This is my template .vimrc file.
+" This is my template ~/.vimrc file.
 
 " Showing the matching braces
 set showmatch
