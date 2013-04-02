@@ -20,3 +20,15 @@ colorscheme blue
 " Enable line numbering
 set number
 
+" Activate the syntax highlighting
+syntax on
+
+" Tabs management: use 4 spaces for Python
+" To use a real tab: CTRL-V<TAB>
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Automatic indentation for the files
+set autoindent
+
