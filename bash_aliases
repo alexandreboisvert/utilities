@@ -25,16 +25,18 @@ alias SIZE='du --summarize --human-readable --total * | sort --human-numeric-sor
 # ISOMOUNT input_file.iso /destination/directory/
 alias ISOMOUNT='sudo mount -o loop'
 
-# File listing
+# File listing with nicer formatting
 # -l: long format
 # --classify: adding a visual hint for the file type
 # -t --reverse: reverse chronological order (most recent at the bottom)
 # --human-readable: Friendly file size (KB, MB, etc.)
 # --color=auto: coulors if available
 # --time-style=long-iso: ISO8601 time format
+# --block-size=\"'1\" : Listing the sizes with a separator (cancels --human-readable) see:
+#     https://www.gnu.org/software/coreutils/manual/coreutils.html#Block-size
 # --all: all the files, including hidden files
-alias LLL='ls -l --all --classify -t --reverse --human-readable --color=auto --time-style=long-iso'
-alias LL='ls -l --classify -t --reverse --human-readable --color=auto --time-style=long-iso'
+alias LLL="ls -l --all --classify -t --reverse --human-readable --color=auto --time-style=long-iso --block-size=\"'1\""
+alias LL="ls -l --classify -t --reverse --human-readable --color=auto --time-style=long-iso --block-size=\"'1\""
 
 # Shorcut to the nano text editor with some common options
 alias NANO='nano --smarthome --smooth --const --autoindent --mouse --nowrap'
