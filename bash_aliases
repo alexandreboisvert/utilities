@@ -65,6 +65,6 @@ alias TAR_LIST='tar -tf'
 
 # Hard Disk Temperature
 # Requires hddtemp
-alias HDT="echo $(nc localhost 7634)"
+alias HDT="echo \$(nc localhost 7634)"
 
 # End of the template file ~/.bash_aliases
