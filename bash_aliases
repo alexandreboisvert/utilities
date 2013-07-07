@@ -63,4 +63,8 @@ alias TAR_EXTRACT='tar -xf'
 # TAR_LIST file.tar
 alias TAR_LIST='tar -tf'
 
+# Hard Disk Temperature
+# Requires hddtemp
+alias HDT="echo $(nc localhost 7634)"
+
 # End of the template file ~/.bash_aliases
