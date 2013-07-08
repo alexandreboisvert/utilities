@@ -32,3 +32,19 @@ set expandtab
 " Automatic indentation for the files
 set autoindent
 
+" Informative status line
+" (This was taken from a book, but I can't remember the title)
+" %F%m%r%h%w               Full filename (path included).
+" [FORMAT=%{&ff}]          Text format (Windows/Unix).
+" [TYPE=%Y]                File type (TEXT, VIM, HTML, etc.).
+" [ASCII=\%03.3b]          ASCII code of the current character under
+"                          the cursor.
+" [HEX=\%02.2B]            HEX code of the current character under 
+"                          the cursor.
+" [POS=%06l,%02v][%p%%]    Position (line, column, percentage).
+" [LEN=%L]                 Total number of lines.
+" laststatus=2             A value of 2 will force the display of 
+"                          the information line at the bottom all 
+"                          the time.
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%06l,%02v][%p%%]\ [LEN=%L]
+set laststatus=2
