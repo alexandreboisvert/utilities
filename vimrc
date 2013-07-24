@@ -3,8 +3,9 @@
 " Showing the matching braces
 set showmatch
 
-" Ignore the case when searching
+" Ignore the case when searching and autocompleting
 set ignorecase
+set infercase
 
 " Do not wrap long lines
 set nowrap
@@ -48,3 +49,9 @@ set autoindent
 "                          the time.
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%06l,%02v][%p%%]\ [LEN=%L]
 set laststatus=2
+
+" Search options
+" Incremental search begins searching immediately.
+" Higlight the search results.
+set incsearch
+set hlsearch
