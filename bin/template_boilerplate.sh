@@ -24,22 +24,27 @@ stop_on_error(){
     [ "$1" -ne "0" ] && write_msg "Error occured, exiting" && exit "$1"
 }
 
-
 ######################################################################
 # Argument parsing
 
-# TODO
-
 usage(){
-echo ""
-#cat EOF <<
-#
-#BLA
-#
-#EOF
+# Displays the short help message
+# EOF placement is important
+cat << EOF
+
+Usage: $0 [-h] [-v]
+
+Options:
+- h: display this help message and exit.
+- v: the script becomes more verbose.
+
+Typical use:
+$0 -v
+
+EOF
 }
 
-# TODO
+# TODO while loop over the arguments
 
 ######################################################################
 # Main program
@@ -57,6 +62,7 @@ stop_on_error "$?"
 #false
 #stop_on_error "$?"
 
+usage >> $LOG_FILE
 
 write_msg "End process"
 
