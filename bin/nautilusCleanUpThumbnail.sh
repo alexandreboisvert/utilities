@@ -24,5 +24,5 @@
 olderThan=7
 
 # Find all the PNG files older than the limit and delete them
-find ~/.thumbnails/ -print0 -ctime +$olderThan -name "*.png" | xargs -0 -I{} rm -v {}
+find ~/.thumbnails/ -type f -print0 -ctime +$olderThan -name "*.png" | xargs -0 -I{} rm -v {}
 
