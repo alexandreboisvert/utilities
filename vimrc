@@ -16,7 +16,7 @@ set nowrap
 "set cursorcolumn
 
 " Colorsheme to use
-colorscheme blue
+colorscheme torte
 
 " Enable line numbering
 set number
