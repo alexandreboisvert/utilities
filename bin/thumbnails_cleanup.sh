@@ -4,8 +4,8 @@
 
 # Context
 # Ubuntu stores a shitload of thumbnails images in a directory called 
-# ~/.thumbnails. These thumbnails are used as a cache when using Nautilus
-# to see images.
+# ~/.thumbnails. These thumbnails are used as a cache when using a file
+# manager.
 
 # Problem
 # The ~/.thumbnails directory can get really big (over 500 MB).
@@ -17,8 +17,8 @@
 
 # TODO
 # At this time, the script is run manually to see the results (using the 
-# -v option of rm). It would be great to have a cron job or a login script 
-# to do this job automatically.
+# --print option of find). It would be great to have a cron job or a
+# login script to do this job automatically.
 
 # Files older than N days
 olderThan=7
