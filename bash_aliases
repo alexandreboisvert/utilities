@@ -67,4 +67,7 @@ alias TAR_LIST='tar -tf'
 # Requires hddtemp
 alias HDT="echo \$(nc localhost 7634)"
 
+# MD5 validation for all the .md5 files in a directory
+alias MD5CALC="find . -type f -iname '*.md5' -execdir md5sum -c {} \;"
+
 # End of the template file ~/.bash_aliases
