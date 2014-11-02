@@ -11,3 +11,4 @@ reboot1minute.sh - Reboots the machine in 1 minute.
 shutdown1minute.sh - Shuts down the machine in 1 minute.
 update_all.sh - apt-get update then apt-get upgrade in one command.
 template_boilerplate.sh - All the common Bash functions I use daily.
+linux-dashboard.sh - Quick system status (cpu, disk, mem, ntp).
