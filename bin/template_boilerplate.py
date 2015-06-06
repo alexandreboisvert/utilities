@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Leave the "coding" tag on the second line. It will prevent
+# accidents with accentuated characters.
 
 # TODO read a config file
 # https://docs.python.org/2/library/configparser.html
