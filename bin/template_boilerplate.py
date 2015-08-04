@@ -49,7 +49,8 @@ if __name__ == "__main__":
     print "Template boilerplate Python script"
     print "int value =", arguments_container.int_value
     if arguments_container.config_file_name is None:
-        print "No config file provided"
+        # this is an error message, il should be on stderr
+        print >> sys.stderr, "No config file provided"
     else:
         print "Config file provided =", arguments_container.config_file_name
 
