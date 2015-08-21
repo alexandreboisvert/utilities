@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO handle -h argument
-
 ######################################################################
 # Utility functions
 
@@ -45,11 +43,32 @@ EOF
 # show help on empty arguments
 [ -z "$1" ] && usage && exit 0
 
+# while loop over the arguments
+# x: ==> argument x requires a value
+while getopts "h" OPTION
+do
+    case $OPTION in
+        h)
+            usage
+            exit 0
+            ;;
+        # Handling the incorrect arguments
+        ?)
+            usage
+            exit 1
+            ;;
+        :)
+            usage
+            exit 1
+            ;;
+    esac
+done
+
 for file_name in "$@"
 do
-    write_msg "processing ${file_name}.md5"
     md5sum -b "$file_name" > "${file_name}.md5"
     stop_on_error "$?"
+    write_msg "[ OK ] ${file_name}.md5"
 done
 
 exit 0
