@@ -14,6 +14,9 @@ import argparse
 # syslog writing utilities
 import syslog
 
+# writing to stderr
+import sys
+
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
 
