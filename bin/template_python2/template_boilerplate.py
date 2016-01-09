@@ -1,11 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 # Leave the "coding" tag on the second line. It will prevent
 # accidents with accentuated characters.
 
-# TODO read a config file
+# read a config file
 # https://docs.python.org/2/library/configparser.html
 # or use JSON...
+import json
 
 # importing argparse since optparse is now deprecated
 # https://docs.python.org/2/library/argparse.html
@@ -32,13 +33,16 @@ def log_err(message):
     syslog.syslog(syslog.LOG_ERR, message)
 
 if __name__ == "__main__":
-    argument_parser = argparse.ArgumentParser(description="Template Boilerplate script",
+    argument_parser = argparse.ArgumentParser(
+        description="Template Boilerplate script",
         epilog="Typical use: ...")
-    argument_parser.add_argument("-i", "--integer-value", default=0,
+    argument_parser.add_argument(
+        "-i", "--integer-value", default=0,
         type=int, required=False,
         help="an integer of your choice",
         metavar="I", dest="int_value")
-    argument_parser.add_argument("-c", "--config-file", default=None,
+    argument_parser.add_argument(
+        "-c", "--config-file", default=None,
         type=str, required=False,
         help="The path to the config file to use",
         metavar="C", dest="config_file_name")
@@ -52,10 +56,15 @@ if __name__ == "__main__":
     print "Template boilerplate Python script"
     print "int value =", arguments_container.int_value
     if arguments_container.config_file_name is None:
-        # this is an error message, il should be on stderr
+        # this is an error message, it should be on stderr
         print >> sys.stderr, "No config file provided"
     else:
         print "Config file provided =", arguments_container.config_file_name
+        fh = open(arguments_container.config_file_name)
+        config_text = fh.read()
+        fh.close()
+        config_json_dict = json.loads(config_text)
+        print "title for config = %s" % (str(config_json_dict["title"]))
 
     log_err("Simulating an error")
     log_info("Ending the program")
