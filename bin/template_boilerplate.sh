@@ -21,7 +21,7 @@ write_msg(){
 
 stop_on_error(){
     # $1: $? the return code from the preceding statement
-    [ "$1" -ne "0" ] && write_msg "Error occured ($1), exiting" && exit "$1"
+    [ "$1" -ne "0" ] && echo "Error occured ($1), exiting" > /dev/stderr && exit "$1"
 }
 
 ######################################################################
