@@ -55,3 +55,7 @@ set laststatus=2
 " Higlight the search results.
 set incsearch
 set hlsearch
+
+" Color the 70th column
+set colorcolumn=71
+
