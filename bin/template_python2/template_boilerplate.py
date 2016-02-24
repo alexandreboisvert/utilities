@@ -46,6 +46,11 @@ if __name__ == "__main__":
         type=str, required=False,
         help="The path to the config file to use",
         metavar="C", dest="config_file_name")
+    argument_parser.add_argument(
+        "-s", "--stdin", required=False,
+        action="store_true",
+        help="Use STDIN as input",
+        dest="use_stdin")
 
     arguments_container = argument_parser.parse_args()
 
@@ -65,6 +70,11 @@ if __name__ == "__main__":
         fh.close()
         config_json_dict = json.loads(config_text)
         print "title for config = %s" % (str(config_json_dict["title"]))
+
+    if arguments_container.use_stdin:
+        print >> sys.stderr, "Reading from stdin:"
+        input_text = sys.stdin.read()
+        print "Text received: %s" % input_text
 
     log_err("Simulating an error")
     log_info("Ending the program")
