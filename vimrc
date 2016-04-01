@@ -59,3 +59,6 @@ set hlsearch
 " Color the 70th column
 set colorcolumn=71
 
+" Autowrap the text at 70th column
+set textwidth=71
+
