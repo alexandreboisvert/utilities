@@ -18,19 +18,33 @@ import syslog
 # writing to stderr
 import sys
 
+# date for logging
+import datetime
+
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
 
 
 # syslog functions
 def log_info(message):
-    """Write an informational event to syslog"""
+    """Write an informational event to syslog
+    :rtype: object
+    :param message:
+    """
     syslog.syslog(message)
 
 
 def log_err(message):
-    """Write an error event to syslog"""
+    """Write an error event to syslog
+    :param message:
+    """
     syslog.syslog(syslog.LOG_ERR, message)
+
+
+def print_message(message):
+    print >> sys.stderr, "{} LOG {}".format(
+        datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        str(message))
 
 if __name__ == "__main__":
     argument_parser = argparse.ArgumentParser(
@@ -58,23 +72,26 @@ if __name__ == "__main__":
     syslog.openlog(ident=PROGRAM_NAME)
     log_info("Starting the program")
 
-    print "Template boilerplate Python script"
-    print "int value =", arguments_container.int_value
+    print_message("Template boilerplate Python script")
+    print_message("int value = {}".format(arguments_container.int_value))
+
     if arguments_container.config_file_name is None:
         # this is an error message, it should be on stderr
-        print >> sys.stderr, "No config file provided"
+        print_message("No config file provided")
     else:
-        print "Config file provided =", arguments_container.config_file_name
+        print_message("Config file provided = {}".format(
+            arguments_container.config_file_name))
         fh = open(arguments_container.config_file_name)
         config_text = fh.read()
         fh.close()
         config_json_dict = json.loads(config_text)
-        print "title for config = %s" % (str(config_json_dict["title"]))
+        print_message("title for config = %s" % (str(
+            config_json_dict["title"])))
 
     if arguments_container.use_stdin:
-        print >> sys.stderr, "Reading from stdin:"
+        print_message("Reading from stdin:")
         input_text = sys.stdin.read()
-        print "Text received: %s" % input_text
+        print_message("Text received: %s" % input_text)
 
     log_err("Simulating an error")
     log_info("Ending the program")
