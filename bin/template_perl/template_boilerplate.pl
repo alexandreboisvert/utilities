@@ -135,6 +135,15 @@ sub stdin_reading() {
         $line_read =~ s/^\s+|\s+$//g;
         print "line: $line_read\n";
     }
+
+    # compact code
+    print "Compact code: reading multiple lines from STDIN:";
+    foreach (<STDIN>) {
+
+        # trimming the line
+        $_ =~ s/^\s+|\s+$//g;
+        print "line read = $_\n";
+    }
 }
 
 sub split_strings() {
