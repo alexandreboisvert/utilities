@@ -13,3 +13,4 @@ update_all.sh - apt-get update then apt-get upgrade in one command.
 template_boilerplate.sh - All the common Bash functions I use daily.
 linux-dashboard.sh - Quick system status (cpu, disk, mem, ntp).
 template_boilerplate for Python 2 and 3
+split_for_fat32 - splitting large files to fit on a FAT32 USB key.
