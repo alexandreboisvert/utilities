@@ -104,7 +104,7 @@ process_md5(){
 export -f process_md5
 export -f write_msg
 
-find . -type f -iname "input_file.txt_PART_*" -exec bash -c 'process_md5 "$1"' _ {} \;
+find . -type f -iname "${input_file}_PART_*" -exec bash -c 'process_md5 "$1"' _ {} \;
 stop_on_error "$?"
 
 write_msg "MD5 the splitted files - END"
