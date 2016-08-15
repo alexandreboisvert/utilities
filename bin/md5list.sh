@@ -14,6 +14,12 @@ stop_on_error(){
     [ "$1" -ne "0" ] && write_msg "Error occured ($1), exiting" && exit "$1"
 }
 
+process_md5(){
+    # $1: the filename
+    md5sum -b "${1}" > "${1}.md5"
+}
+export -f process_md5
+
 ######################################################################
 
 usage(){
@@ -66,9 +72,9 @@ done
 
 for file_name in "$@"
 do
-    md5sum -b "$file_name" > "${file_name}.md5"
+    write_msg "Processing ${file_name}"
+    find "${file_name}" -execdir bash -c 'process_md5 "$1"' _ {} \;
     stop_on_error "$?"
-    write_msg "[ OK ] ${file_name}.md5"
 done
 
 exit 0
