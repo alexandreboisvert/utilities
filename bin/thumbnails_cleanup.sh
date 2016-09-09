@@ -15,14 +15,13 @@
 # specified (the first version of this script used 30 days) in a 
 # script variable. The script then deletes each file.
 
-# TODO
-# At this time, the script is run manually to see the results (using the 
-# --print option of find). It would be great to have a cron job or a
-# login script to do this job automatically.
-
 # Files older than N days
-olderThan=7
+olderThan=1
 
 # Find all the PNG files older than the limit and delete them
-find ~/.thumbnails/ -type f -mtime +$olderThan -name '*.png' -delete -print
+find ~/.thumbnails/ -type f -mtime "+${olderThan}" -name '*.png' -exec shred --remove --zero {} \;
+
+# The sxiv programs also creates a large amount of thumbnails
+find ~/.cache/sxiv -type f -exec shred --remove --zero {} \;
+find ~/.cache/sxiv -type d -exec rm -r {} \;
 
