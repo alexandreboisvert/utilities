@@ -17,6 +17,7 @@ stop_on_error(){
 process_md5(){
     # $1: the filename
     md5sum -b "${1}" > "${1}.md5"
+    sed -i 's/\.\///' "${1}.md5"
 }
 export -f process_md5
 
