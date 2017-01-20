@@ -20,8 +20,13 @@ export -f write_msg
 
 process_md5calc(){
     # $1 = MD5 file name
-    write_msg "processing $1"
-    md5sum --quiet -c "$1"
+    md5sum --quiet -c  "$1" > /dev/null 2>&1
+    if [ "$?" -eq "0"  ]
+    then
+        write_msg "[  OK  ] $1"
+    else
+        write_msg "[ FAIL ] $1 "
+    fi
 }
 
 # We need to export this function to use in "find".
