@@ -46,6 +46,7 @@ def print_message(message):
         datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         str(message))
 
+
 if __name__ == "__main__":
     argument_parser = argparse.ArgumentParser(
         description="Template Boilerplate script",
@@ -92,6 +93,13 @@ if __name__ == "__main__":
         print_message("Reading from stdin:")
         input_text = sys.stdin.read()
         print_message("Text received: %s" % input_text)
+
+    # Error handling
+    try:
+        raise ValueError("this is not a real error")
+    except ValueError as ve:
+        print("Error occured:")
+        print(ve)
 
     log_err("Simulating an error")
     log_info("Ending the program")
