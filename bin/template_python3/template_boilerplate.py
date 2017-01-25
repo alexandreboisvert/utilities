@@ -29,6 +29,7 @@ def log_err(message):
     """Write an error event to syslog"""
     syslog.syslog(syslog.LOG_ERR, message)
 
+
 if __name__ == "__main__":
     argument_parser = argparse.ArgumentParser(
         description="Template Boilerplate script",
@@ -66,6 +67,14 @@ if __name__ == "__main__":
         print("title for config = %s" % (str(config_json_dict["title"])))
 
     print("%s %s" % ("message1", "message2"))
+
+    # Error handling
+    try:
+        raise ValueError("this is not a real error")
+    except ValueError as ve:
+        print("Error occured:")
+        print(ve)
+
     print("message1", "message2")
     log_err("Simulating an error")
     log_info("Ending the program")
