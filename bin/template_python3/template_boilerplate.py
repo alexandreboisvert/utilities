@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Template/Boilerplate for python3"""
 
 # read a config file
 # https://docs.python.org/2/library/configparser.html
@@ -9,11 +10,11 @@ import json
 # https://docs.python.org/2/library/argparse.html
 import argparse
 
-# syslog writing utilities
-import syslog
-
 # writing to stderr
 import sys
+
+# syslog writing utilities
+import syslog
 
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
@@ -30,7 +31,8 @@ def log_err(message):
     syslog.syslog(syslog.LOG_ERR, message)
 
 
-if __name__ == "__main__":
+def main():
+    """Program Entrypoint"""
     argument_parser = argparse.ArgumentParser(
         description="Template Boilerplate script",
         epilog="Typical use: ...")
@@ -60,9 +62,9 @@ if __name__ == "__main__":
         print(
             "Config file provided = %s"
             % (arguments_container.config_file_name))
-        fh = open(arguments_container.config_file_name)
-        config_text = fh.read()
-        fh.close()
+        filehandle = open(arguments_container.config_file_name)
+        config_text = filehandle.read()
+        filehandle.close()
         config_json_dict = json.loads(config_text)
         print("title for config = %s" % (str(config_json_dict["title"])))
 
@@ -71,10 +73,14 @@ if __name__ == "__main__":
     # Error handling
     try:
         raise ValueError("this is not a real error")
-    except ValueError as ve:
+    except ValueError as value_exception:
         print("Error occured:")
-        print(ve)
+        print(value_exception)
 
     print("message1", "message2")
     log_err("Simulating an error")
     log_info("Ending the program")
+
+
+if __name__ == "__main__":
+    main()
