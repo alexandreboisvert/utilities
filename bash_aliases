@@ -10,7 +10,7 @@
 # built-in or native commands.
 
 # File space available under different devices on the system.
-alias AVAIL='df --human-readable | grep --ignore-case --invert-match none'
+alias AVAIL='df --human-readable | grep --ignore-case --invert-match "none" | column -t'
 
 # Verbose and asking for confirmation (avoid some big bad mistakes).
 alias CP='cp --interactive --verbose'
@@ -53,7 +53,8 @@ alias ROT13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'''
 # Small web server. The current directory is available at 
 # http://127.0.0.1:8080
 # This is not for production.
-alias SERVER='python -m SimpleHTTPServer'
+alias SERVER='python2 -m SimpleHTTPServer'
+alias SERVER3='python3 -m http.server'
 
 # Common TAR commands
 # Extract the file
