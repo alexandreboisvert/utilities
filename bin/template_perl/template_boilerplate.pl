@@ -60,6 +60,10 @@ use Getopt::Long;
 #     for ( $counter = 0 ; $counter < 5 ; $counter = $counter + 1 ) {
 #         print "for loop $counter\n";
 #     }
+#     for $counter (0 .. 4) {
+#         print "for loop $counter\n";
+#     }
+
 #     $counter = 0;
 #     while ( $counter < 5 ) {
 #         print "while loop abort at 3: $counter\n";
@@ -360,6 +364,10 @@ use Getopt::Long;
 #     foreach my $movie_title ( keys %Movies ) {
 #         print "Movie = $movie_title, Director = $Movies{$movie_title}\n";
 #     }
+#     foreach my $movie_director ( values %Movies ) {
+#         print "Director = $movie_director\n";
+#     }
+
 # }
 #
 # #basic_vars();
@@ -491,7 +499,7 @@ sub process_json_file {
 
     print "process json filename = $json_filename\n";
 
-    if ( open( json_filehandler, $json_filename ) ) {
+    if ( open( my $json_filehandler, '<', $json_filename ) ) {
         @json_lines = <json_filehandler>;
         close(json_filehandler);
 
@@ -556,6 +564,12 @@ sub main() {
     my @locations = ( "earth", "moon", "mars" );
 
     args_testing( $age, @locations );
+
+    my @animals = ( "camel", "dog", "cat" );
+    print "array animals = @animals\n";
+    my $array_length = @animals;
+    print "array length with variable: $array_length\n";
+    print "array length with scalar: " . scalar(@animals) . "\n";
 }
 
 main();
