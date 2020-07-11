@@ -500,8 +500,8 @@ sub process_json_file {
     print "process json filename = $json_filename\n";
 
     if ( open( my $json_filehandler, '<', $json_filename ) ) {
-        @json_lines = <json_filehandler>;
-        close(json_filehandler);
+        @json_lines = <$json_filehandler>;
+        close($json_filehandler);
 
         foreach my $current_line (@json_lines) {
             chomp $current_line;
