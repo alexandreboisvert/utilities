@@ -60,11 +60,7 @@ do
             exit 0
             ;;
         # Handling the incorrect arguments
-        ?)
-            usage
-            exit 1
-            ;;
-        :)
+        *)
             usage
             exit 1
             ;;

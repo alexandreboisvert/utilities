@@ -20,8 +20,7 @@ export -f write_msg
 
 process_md5calc(){
     # $1 = MD5 file name
-    md5sum --quiet -c  "$1" > /dev/null 2>&1
-    if [ "$?" -eq "0"  ]
+    if md5sum --quiet -c  "$1" > /dev/null 2>&1
     then
         write_msg "[  OK  ] $1"
     else
@@ -73,11 +72,7 @@ do
             dir_to_process="$OPTARG"
             ;;
         # Handling the incorrect arguments
-        ?)
-            usage
-            exit 1
-            ;;
-        :)
+        *)
             usage
             exit 1
             ;;
