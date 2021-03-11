@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ######################################################################
 # Utility functions
@@ -69,7 +69,7 @@ done
 
 for file_name in "$@"
 do
-    write_msg "Processing ${file_name}"
+    write_msg "Creating MD5 for: ${file_name}"
     find "${file_name}" -execdir bash -c 'process_md5 "$1"' _ {} \;
     stop_on_error "$?"
 done

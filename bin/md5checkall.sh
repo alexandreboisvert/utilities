@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ######################################################################
 # Constants and global variables (default values)
@@ -85,7 +85,7 @@ then
     dir_to_process='.'
 fi
 
-write_msg "Processing dir '${dir_to_process}'"
+write_msg "Checking MD5 for: '${dir_to_process}'"
 
 find "${dir_to_process}" -type f -iname '*.md5' -execdir bash -c 'process_md5calc "$1"' _ {} \;
 
