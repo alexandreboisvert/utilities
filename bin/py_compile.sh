@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Python compilation
 # Check the syntax of the given file for PEP8 compliance and pyflakes

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Poweroff in 1 minute. This gives times to close the programs and 
 # disconnect properly. Useful by SSH.

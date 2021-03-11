@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # One-step operation to update the machine.
 sudo apt-get update
