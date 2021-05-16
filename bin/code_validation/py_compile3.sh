@@ -4,8 +4,7 @@
 # Check the syntax of the given file for PEP8 compliance and pyflakes
 # errors then create a pyc file.
 
-# Dependencies: pep8 (pip install pep8)
-# Dependencies: pyflakes (apt-get install pyflakes)
+# Dependencies: flake8 (uses pep8 and flake)
 
 # Minimal parameters validation
 if [ "$1" == "" ] ;
@@ -14,12 +13,8 @@ then
     exit 1
 fi
 
-echo "PEP 8 Validation"
-pep8 "$1"
-
-echo "pyflakes Validation"
-pyflakes "$1"
-
-echo "Python Compilation"
-python -m py_compile "$1"
+echo "flake8 validation and python compilation "
+# E501: line too long
+# This error can be ignored for all practical purposes
+flake8 --ignore='E501' "$1" && python3 -m py_compile "$1"
 

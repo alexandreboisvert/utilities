@@ -18,11 +18,6 @@ write_msg(){
     echo "$date_log $1"
 }
 
-stop_on_error(){
-    # $1: $? the return code from the preceding statement
-    [ "$1" -ne "0" ] && echo "Error occured ($1), exiting" > /dev/stderr && exit "$1"
-}
-
 ######################################################################
 # Argument parsing
 
@@ -62,7 +57,7 @@ do
             input_file="${OPTARG}"
             ;;
         # Handling the incorrect arguments
-        *)
+        ?)
             usage
             exit 1
             ;;
@@ -78,20 +73,22 @@ then
     exit 1
 fi
 
+# stop on any error
+set -e
+
 write_msg "MD5 of input file - BEGIN"
 md5sum -b "${input_file}" > "${input_file}.md5"
 write_msg "MD5 of input file - END"
 
 write_msg "Split the input file - BEGIN"
 split --bytes="${split_size}" --numeric-suffixes "${input_file}" "${input_file}_PART_"
-stop_on_error "$?"
 write_msg "Split the input file - END"
 
 write_msg "MD5 the splitted files - BEGIN"
 
-# this code looks ugly, but it works
-# ShellCheck does not complain about any issue
 
+# Need to export functions used with the find command
+# The find command creates a bash subshell
 process_md5(){
     # $1 = filename
     write_msg "MD5 file: $1"
@@ -101,11 +98,7 @@ export -f process_md5
 export -f write_msg
 
 find . -type f -iname "${input_file}_PART_*" -exec bash -c 'process_md5 "$1"' _ {} \;
-stop_on_error "$?"
 
 write_msg "MD5 the splitted files - END"
 
 write_msg "Splitting into volumes - END"
-
-exit 0
-

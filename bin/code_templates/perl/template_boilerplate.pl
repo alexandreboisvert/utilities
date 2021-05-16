@@ -525,7 +525,7 @@ sub process_json_file {
 
         );
 
-        my $hash_as_json = encode_json $ref_of_hash;
+        my $hash_as_json  = encode_json $ref_of_hash;
         my $hash_as_json2 = encode_json { %hash2 };
 
         print "hash_as_json: $hash_as_json\n";
@@ -560,7 +560,7 @@ sub main() {
     print "STDIN mode: $stdin_mode\n";
     process_json_file($config_file);
 
-    my $age = 99;
+    my $age       = 99;
     my @locations = ( "earth", "moon", "mars" );
 
     args_testing( $age, @locations );

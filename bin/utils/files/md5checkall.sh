@@ -90,5 +90,3 @@ write_msg "Checking MD5 for: '${dir_to_process}'"
 find "${dir_to_process}" -type f -iname '*.md5' -execdir bash -c 'process_md5calc "$1"' _ {} \;
 
 write_msg "End process, see above if any error message"
-
-exit 0

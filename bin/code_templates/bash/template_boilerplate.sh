@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# general note for bash scripting: use https://www.shellcheck.net/
+
+# useful Bash options
+# set -e: stop on any error
+# set -x: display the command before executing it
+
 ######################################################################
 # Constants and global variables (default values)
 
@@ -13,15 +19,11 @@ verbose_mode=0
 # Utility functions
 
 write_msg(){
+    # Writing a message in a proper log format (date-time-message)
     # $1: message to write
     date_log=$(date "+%Y-%m-%d %H:%M:%S")
     [ "$verbose_mode" -ne "0" ] && echo "$date_log $1"
     echo "$date_log $1" >> $log_file
-}
-
-stop_on_error(){
-    # $1: $? the return code from the preceding statement
-    [ "$1" -ne "0" ] && echo "Error occured ($1), exiting" > /dev/stderr && exit "$1"
 }
 
 ######################################################################
@@ -74,16 +76,6 @@ done
 [ "$verbose_mode" -eq "1" ] && write_msg "Verbose mode activated"
 
 write_msg "log file location = $log_file"
-
-write_msg "valid operation"
-true
-stop_on_error "$?"
-
-#write_msg "invalid operation"
-#false
-#stop_on_error "$?"
-
-#usage >> $log_file
 
 write_msg "End process"
 

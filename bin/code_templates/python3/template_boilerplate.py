@@ -1,7 +1,5 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-# Leave the "coding" tag on the second line. It will prevent
-# accidents with accentuated characters.
+#!/usr/bin/env python3
+"""Template/Boilerplate for python3"""
 
 # read a config file
 # https://docs.python.org/2/library/configparser.html
@@ -12,14 +10,12 @@ import json
 # https://docs.python.org/2/library/argparse.html
 import argparse
 
-# syslog writing utilities
-import syslog
-
 # writing to stderr
 import sys
 
-# date for logging
-import datetime
+# syslog writing utilities
+# works on linux, not tested on windows
+import syslog
 
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
@@ -27,27 +23,17 @@ PROGRAM_NAME = "template_boilerplate_py"
 
 # syslog functions
 def log_info(message):
-    """Write an informational event to syslog
-    :rtype: object
-    :param message:
-    """
+    """Write an informational event to syslog"""
     syslog.syslog(message)
 
 
 def log_err(message):
-    """Write an error event to syslog
-    :param message:
-    """
+    """Write an error event to syslog"""
     syslog.syslog(syslog.LOG_ERR, message)
 
 
-def print_message(message):
-    print >> sys.stderr, "{} LOG {}".format(
-        datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        str(message))
-
-
-if __name__ == "__main__":
+def main():
+    """Program Entrypoint"""
     argument_parser = argparse.ArgumentParser(
         description="Template Boilerplate script",
         epilog="Typical use: ...")
@@ -61,11 +47,6 @@ if __name__ == "__main__":
         type=str, required=False,
         help="The path to the config file to use",
         metavar="C", dest="config_file_name")
-    argument_parser.add_argument(
-        "-s", "--stdin", required=False,
-        action="store_true",
-        help="Use STDIN as input",
-        dest="use_stdin")
 
     arguments_container = argument_parser.parse_args()
 
@@ -73,33 +54,34 @@ if __name__ == "__main__":
     syslog.openlog(ident=PROGRAM_NAME)
     log_info("Starting the program")
 
-    print_message("Template boilerplate Python script")
-    print_message("int value = {}".format(arguments_container.int_value))
-
+    print("Template boilerplate Python script")
+    print("int value = %d" % (arguments_container.int_value))
     if arguments_container.config_file_name is None:
         # this is an error message, it should be on stderr
-        print_message("No config file provided")
+        print("No config file provided", file=sys.stderr)
     else:
-        print_message("Config file provided = {}".format(
-            arguments_container.config_file_name))
-        fh = open(arguments_container.config_file_name)
-        config_text = fh.read()
-        fh.close()
+        print(
+            "Config file provided = %s"
+            % (arguments_container.config_file_name))
+        filehandle = open(arguments_container.config_file_name)
+        config_text = filehandle.read()
+        filehandle.close()
         config_json_dict = json.loads(config_text)
-        print_message("title for config = %s" % (str(
-            config_json_dict["title"])))
+        print("title for config = %s" % (str(config_json_dict["title"])))
 
-    if arguments_container.use_stdin:
-        print_message("Reading from stdin:")
-        input_text = sys.stdin.read()
-        print_message("Text received: %s" % input_text)
+    print("%s %s" % ("message1", "message2"))
 
     # Error handling
     try:
         raise ValueError("this is not a real error")
-    except ValueError as ve:
+    except ValueError as value_exception:
         print("Error occured:")
-        print(ve)
+        print(value_exception)
 
+    print("message1", "message2")
     log_err("Simulating an error")
     log_info("Ending the program")
+
+
+if __name__ == "__main__":
+    main()

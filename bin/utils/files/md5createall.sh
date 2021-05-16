@@ -9,11 +9,6 @@ write_msg(){
     echo "$date_log $1"
 }
 
-stop_on_error(){
-    # $1: $? the return code from the preceding statement
-    [ "$1" -ne "0" ] && write_msg "Error occured ($1), exiting" && exit "$1"
-}
-
 process_md5(){
     # $1: the filename
     md5sum -b "${1}" > "${1}.md5"
@@ -70,8 +65,5 @@ done
 for file_name in "$@"
 do
     write_msg "Creating MD5 for: ${file_name}"
-    find "${file_name}" -execdir bash -c 'process_md5 "$1"' _ {} \;
-    stop_on_error "$?"
+    find "${file_name}" -type f -execdir bash -c 'process_md5 "$1"' _ {} \;
 done
-
-exit 0
