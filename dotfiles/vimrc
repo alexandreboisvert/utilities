@@ -16,10 +16,10 @@ set nowrap
 "set cursorcolumn
 
 " Colorsheme to use
-colorscheme torte
+colorscheme koehler
 
 " Enable line numbering
-set number
+"set number
 
 " Activate the syntax highlighting
 syntax on
@@ -57,8 +57,14 @@ set incsearch
 set hlsearch
 
 " Color the 70th column
-set colorcolumn=71
+"set colorcolumn=71
 
 " Autowrap the text at 70th column
-set textwidth=71
+"set textwidth=71
 
+" Using more helpful menus in commands
+set wildmenu
+set wildmode=longest:full,full
+
+" reload the file automatically upon external edit
+set autoread
