@@ -77,12 +77,16 @@ write_msg "Processing directory: ${input_dir}"
 
 find  "${input_dir}" -type f -print -exec shred --iterations=1 --remove --zero {} \;
 
-sync
-
 write_msg "Files processing done"
 
 rm -vrf "${input_dir}"
 
 write_msg "Directory structure deleted"
+
+write_msg "Syncing"
+
+sync
+
+write_msg "Syncing done"
 
 write_msg "Processing done"
