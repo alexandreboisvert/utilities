@@ -6,6 +6,12 @@ then
     exit 1
 fi
 
+if ! echo "$1" | grep --quiet --extended-regexp '^https://'
+then
+    echo 'provide the URL starting with "https://..."'
+    exit 1
+fi
+
 # stop on any error
 set -e
 
