@@ -133,7 +133,6 @@ if ($getoptresult) {
         exit 0;
     }
 
-    print "===== Chuck Norris Fact =====\n";
     my $fact_index = int( rand( scalar(@facts) ) );
     print $facts[$fact_index] . "\n";
 }
