@@ -9,11 +9,15 @@ fi
 home_prefix="$HOME"
 
 items_to_remove=".adobe/
+.cache/chromium
+.cache/cool-retro-term
+.cache/mesa_shader_cache
+.cache/qtshadercache-x86_64-little_endian-lp64
+.compiz/sessions
 .dvdcss/
 .java/.userPrefs
 .kde/share/apps/okular/
 .lesshst
-.local/share/RecentDocuments
 .local/share/baloo
 .local/share/kactivitymanagerd
 .local/share/kate
@@ -24,6 +28,7 @@ items_to_remove=".adobe/
 .local/share/konsole
 .local/share/kscreen
 .local/share/ksysguard
+.local/share/RecentDocuments
 .local/share/recently-used.xbel
 .local/share/user-places.xbel
 .local/share/vlc
@@ -33,17 +38,12 @@ items_to_remove=".adobe/
 .recently-used
 .sdcv_history
 .units_history
-.units_history
 .vim/.netrwhist
 .viminfo
+.w3m/cookie
 .wget-hsts
 .xsession-errors
-.xsession-errors.old
-.cache/chromium
-.cache/mesa_shader_cache
-.cache/cool-retro-term
-.cache/qtshadercache-x86_64-little_endian-lp64"
-
+.xsession-errors.old"
 
 for item in $items_to_remove
 do
