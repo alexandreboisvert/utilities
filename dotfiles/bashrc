@@ -33,3 +33,7 @@ export GOPATH=/home/alex/go
 
 # tree chars
 export TREE_CHARSET="ASCII"
+
+# home page for w3m
+export WWW_HOME='https://duckduckgo.com/lite'
+
