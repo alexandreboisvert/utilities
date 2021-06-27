@@ -45,6 +45,11 @@ Options:
 Typical use:
 $0 -v -p 00000 -c 'ls -l > /tmp/files.txt'
 
+ALTERNATIVE:
+pwait process_name_goes_here && command_to_run_after
+This uses pgrep with the process name, not the PID.
+Also, this waits for all processes with the same name to finish.
+
 EOF
 }
 
