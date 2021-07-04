@@ -4,7 +4,7 @@
 # accidents with accentuated characters.
 
 # This whole script could be replaced by this:
-# grep -P '[^\x00-\x7F]' filename.txt
+# grep --line-number --color=always --perl-regexp '[^\x00-\x7F]' filename.txt
 # or this:
 # perl -nE 'if(m/[^\x00-\x7F]/){say "$_"}' < filename.txt
 
