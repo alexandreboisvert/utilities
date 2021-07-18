@@ -3,7 +3,7 @@
 if [ -z "$1" ]
 then
   echo "Get a short summary from mediainfo"
-  echo "Width (in pixels) [tab] Height (in pixels) [tab] Duration (in milliseconds) [tab] File Size (in bytes) [tab] File Name"
+  echo "Width (in pixels) [tab] Height (in pixels) [tab] Duration (in milliseconds) [tab] Duration (in H and M) [tab] File Size (in bytes) [tab] File Name"
   echo "Requires the program mediainfo"
   exit 0
 fi
@@ -24,6 +24,9 @@ do
   /^File size +: [0-9]+$/ { size_bytes = $NF }
   /^Complete name +: .*$/ { file_name = $NF }
   END{
-    print width_pixel "\t" height_pixel "\t" duration_ms "\t" size_bytes "\t" file_name;
+    duration_s = duration_ms / 1000.0;
+    duration_h = int(duration_s / 3600.0);
+    duration_m = int(((duration_s / 3600.0) - duration_h) * 60.0);
+    print width_pixel "\t" height_pixel "\t" duration_ms "\t" duration_h "h" duration_m "m\t" size_bytes "\t" file_name;
   }'
 done
