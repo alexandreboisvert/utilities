@@ -6,7 +6,7 @@
 #     . ~/.bash_aliases
 # fi
 
-# I create UPPERCASE aliases to avoid any confusion with the Linux 
+# I create UPPERCASE aliases to avoid any confusion with the Linux
 # built-in or native commands.
 
 # File space available under different devices on the system.
@@ -50,7 +50,7 @@ alias PSLIST='ps -e -o time,pid,user,state,command'
 # Easy ROT13 obfuscation (this is not encryption!)
 alias ROT13='tr '\''A-Za-z'\'' '\''N-ZA-Mn-za-m'\'''
 
-# Small web server. The current directory is available at 
+# Small web server. The current directory is available at
 # http://127.0.0.1:8080
 # This is not for production.
 alias SERVER='python2 -m SimpleHTTPServer'

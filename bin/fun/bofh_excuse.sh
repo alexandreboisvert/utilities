@@ -145,7 +145,7 @@ disks spinning backwards - toggle the hemisphere jumper.
 new guy cross-connected phone lines with ac power bus.
 had to use hammer to free stuck disk drive heads.
 Too few computrons available.
-Flat tire on station wagon with tapes.  (Never underestimate the bandwidth of a station wagon full of tapes hurling down the highway - Andrew S. Tannenbaum) 
+Flat tire on station wagon with tapes.  (Never underestimate the bandwidth of a station wagon full of tapes hurling down the highway - Andrew S. Tannenbaum)
 Communications satellite used by the military for star wars.
 Party-bug in the Aloha protocol.
 Insert coin for new game
@@ -160,7 +160,7 @@ Zombie processes haunting the computer
 Incorrect time synchronization
 Defunct processes
 Stubborn processes
-non-redundant fan failure 
+non-redundant fan failure
 monitor VLF leakage
 bugs in the RAID
 no 'any' key on keyboard
@@ -235,7 +235,7 @@ We had to turn off that service to comply with the CDA Bill.
 Ionization from the air-conditioning
 TCP/IP UDP alarm threshold is set too low.
 Someone is broadcasting pygmy packets and the router doesn't know how to deal with them.
-The new frame relay network hasn't bedded down the software loop transmitter yet. 
+The new frame relay network hasn't bedded down the software loop transmitter yet.
 Fanout dropping voltage too much, try cutting some of those little traces
 Plate voltage too low on demodulator tube
 You did wha... oh _dear_....
@@ -285,7 +285,7 @@ The co-locator cannot verify the frame-relay gateway to the ISDN server.
 High altitude condensation from U.S.A.F prototype aircraft has contaminated the primary subnet mask. Turn off your computer for 9 days to avoid damaging it.
 Lawn mower blade in your fan need sharpening
 Electrons on a bender
-Telecommunications is upgrading. 
+Telecommunications is upgrading.
 Telecommunications is downgrading.
 Telecommunications is downshifting.
 Hard drive sleeping. Let it wake up on it's own...
@@ -357,7 +357,7 @@ Second-system effect.
 Chewing gum on /dev/sd3c
 Boredom in the Kernel.
 the daemons! the daemons! the terrible daemons!
-I'd love to help you -- it's just that the Boss won't let me near the computer. 
+I'd love to help you -- it's just that the Boss won't let me near the computer.
 struck by the Good Times virus
 YOU HAVE AN I/O ERROR -> Incompetent Operator error
 Your parity check is overdrawn and you're out of cache.
@@ -395,7 +395,7 @@ We already sent around a notice about that.
 It's union rules. There's nothing we can do about it. Sorry.
 Interference from the Van Allen Belt.
 Jupiter is aligned with Mars.
-Redundant ACLs. 
+Redundant ACLs.
 Mail server hit by UniSpammer.
 T-1's congested due to porn traffic to the news server.
 Data for intranet got routed through the extranet and landed on the internet.
