@@ -1,19 +1,45 @@
 #!/usr/bin/env bash
 
-for item in "$@"
-do
-  # A simple sed command like this:
-  # sed -i -e 's/ \+$//' "${item}"
-  # will modify the file every time.
+# Clean trailing spaces
+# Mostly used in source code files
 
-  # Add a check before.
+# if the first option is "-h", display quick help
+if [ "$1" == "-h" ]
+then
+  cat << EOF
 
-  # If needed: perform the sed command
-  # do not alter a correct file
-  if grep -q -E ' +$' "${item}"
-  then
-    sed -i -e 's/ \+$//' "${item}"
-  else
-    echo "${item} does not have trailing spaces"
-  fi
-done
+Clean trailing spaces
+Mostly used in source code files
+
+Will not alter a file that is OK
+
+Can be used on files:
+  $0 file1.txt file2.txt
+
+Can be used in a stream:
+  command1 | $0 | command2
+
+Can be used in vim:
+  :% ! $0
+
+EOF
+  exit 0
+fi
+
+if [ -n "$1" ]
+then
+  # if there are arguments, treat them as files
+  for item in "$@"
+  do
+    if grep -q -E ' +$' "${item}"
+    then
+      sed -i -e 's/ \+$//' "${item}"
+    else
+      echo "${item} does not have trailing spaces"
+    fi
+  done
+else
+  # else process STDIN and output to STDOUT 
+  sed -e 's/ \+$//'
+fi
+
