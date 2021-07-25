@@ -39,7 +39,7 @@ then
     fi
   done
 else
-  # else process STDIN and output to STDOUT 
+  # else process STDIN and output to STDOUT
   sed -e 's/ \+$//'
 fi
 
