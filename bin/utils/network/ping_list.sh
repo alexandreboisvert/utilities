@@ -23,7 +23,7 @@ Usage: $0 [-h] [-b BATCH_SIZE] [-t TIMEOUT] -l HOST_LIST
 Options:
 - h: display this help message and exit.
 - b: how many hosts to ping in parallel, defaulting to ${batch_size},
-     use 0 to ping all at one (risky).
+     use 0 to ping all at once (risky).
 - t: timeout in seconds (${ping_timeout} s if not provided),
      must be a positive integer.
 - l: list of hosts to ping (one per line) [REQUIRED].
