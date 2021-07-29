@@ -26,6 +26,6 @@ docker start -i -t 999_container_name_999 /bin/bash
 docker exec -i -t 999_container_name_999 /bin/bash
 
 # inside an Ubuntu/Debian docker, try installing some utilities
-apt install bash-completion bzip2 cifs-utils ethtool exfat-fuse exfat-utils gawk gdebi-core git gzip html2text htop iotop iperf locate lsof mc oping p7zip p7zip-full p7zip-rar parted pv rsync shellcheck tar tcpdump telnet tmux tree unzip util-linux vim
+apt install bash-completion bzip2 cifs-utils curl ethtool exfat-fuse exfat-utils gawk gdebi-core git gzip html2text htop iotop iperf locate lsof mc oping p7zip p7zip-full p7zip-rar parted pv rsync shellcheck tar tcpdump telnet tmux tree unzip util-linux vim wget
 
 EOF
