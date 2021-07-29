@@ -36,7 +36,7 @@ EOF
 
 write_message(){
   # write to stderr, leaving stdout for the results
-  echo "$(date '+%Y-%m-%d %H:%M:%S.%N') $1" >> /dev/stderr 
+  echo "$(date '+%Y-%m-%d %H:%M:%S.%N') $1" >> /dev/stderr
 }
 
 ######################################################################
