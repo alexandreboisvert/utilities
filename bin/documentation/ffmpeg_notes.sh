@@ -16,4 +16,7 @@ ffmpeg -i video.mp4 -b:a 320K audio.mp3"
 # convert a GIF to MP4 (significant space savings)
 ffmpeg -i video.gif video.mp4
 
+# extract video from file
+fmpeg -i audio_and_video.mp4 -c copy -an video_only.mp4
+
 EOF
