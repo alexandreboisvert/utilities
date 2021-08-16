@@ -41,6 +41,7 @@ items_to_remove=".adobe/
 .vim/.netrwhist
 .viminfo
 .w3m/cookie
+.w3m/history
 .wget-hsts
 .xsession-errors
 .xsession-errors.old"
