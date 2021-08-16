@@ -49,7 +49,6 @@ for item in $items_to_remove
 do
     if [ -e "${home_prefix}/${item}" ]
     then
-        echo "ITEM exist = ${home_prefix}/${item}"
         du -sh "${home_prefix}/${item}"
     fi
 done
@@ -61,7 +60,6 @@ for item in $items_to_remove
 do
     if [ -e "${home_prefix}/${item}" ]
     then
-        echo "ITEM exist = ${home_prefix}/${item}"
         rm -rv -- "${home_prefix:?}/${item:?}"
     fi
 done
