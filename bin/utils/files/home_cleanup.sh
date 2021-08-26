@@ -44,7 +44,10 @@ items_to_remove=".adobe/
 .w3m/history
 .wget-hsts
 .xsession-errors
-.xsession-errors.old"
+.xsession-errors.old
+.newsboat/cache.db
+.newsboat/history.search
+.newsboat/history.cmdline"
 
 for item in $items_to_remove
 do
