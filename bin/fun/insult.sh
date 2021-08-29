@@ -22,7 +22,17 @@ You have a great face for radio.
 Somewhere somehow you are robbing a village of an idiot.
 Everyone who ever loved you was wrong.
 Your face makes blind kids cry.
-You would have been better as a stain between the bedsheets."
+You would have been better as a stain between the bedsheets.
+Easy, now ... don't let your brains go to your head.
+Intelligence is chasing you, but you are faster.
+You could hide your own Easter eggs.
+You aren't the biggest idiot in the world but you better hope they don't die.
+At this point, you can only impress me.
+I expected nothing, but I'm still disappointed.
+Having you around is like losing three good people.
+You are so far behind you think you're first.
+You are sharp as a marshmallow.
+You're the reason we have warning labels."
 
 echo "${insults}" | shuf -n1
 
