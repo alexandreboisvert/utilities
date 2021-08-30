@@ -19,4 +19,8 @@ ffmpeg -i video.gif video.mp4
 # extract video from file
 fmpeg -i audio_and_video.mp4 -c copy -an video_only.mp4
 
+# reverse video
+# NEVER TESTED, memory allocation problems
+ffmpeg -i input.mp4 -vf reverse -af areverse reversed_video.mp4
+
 EOF
