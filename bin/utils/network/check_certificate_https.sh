@@ -2,20 +2,18 @@
 
 if [ -z "$1" ]
 then
-    echo "provide the URL for the website to check"
+    echo "[ FAIL ] provide the URL for the website to check"
     exit 1
 fi
 
 if ! echo "$1" | grep --quiet --extended-regexp '^https://'
 then
-    echo 'provide the URL starting with "https://..."'
+    echo '[ FAIL ] provide the URL starting with "https://..."'
     exit 1
 fi
 
 # stop on any error
 set -e
-
-echo "Fetching the website: $1"
 
 # --no-keepalive: Disables the use of keepalive messages on the TCP connection
 expiration_date=$(curl \
@@ -30,8 +28,6 @@ expiration_date=$(curl \
     /expire date/ {print $2}
     END{}')
 
-echo "Expiration Date Found = ${expiration_date}"
-
 expiration_ts=$(date -d "${expiration_date}" +%s)
 
 current_ts=$(date +%s)
@@ -44,8 +40,8 @@ max_delay_text="2 weeks"
 
 if [ "${diff_ts}" -lt "${max_delay}" ]
 then
-    echo "expiration in less than ${max_delay_text}"
+    echo "[ FAIL ] expiration for $1 in less than ${max_delay_text}"
 else
-    echo "ok for now (more than ${max_delay_text})"
+    echo "[  OK  ] expiration for $1 is more than ${max_delay_text}"
 fi
 
