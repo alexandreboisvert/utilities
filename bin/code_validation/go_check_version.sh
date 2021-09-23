@@ -7,17 +7,14 @@
 # makes the script more portable
 local_go_version=$(/usr/local/go/bin/go version | grep --only-matching --extended-regexp '[0-9]+\.[0-9]+(\.[0-9]+)*')
 
-current_go_version=$(curl --silent --user-agent "mozilla" 'https://golang.org/dl/' \
+current_go_version=$(curl --max-time 5 --silent --user-agent "mozilla" 'https://golang.org/dl/' \
   | grep --extended-regexp '<span class="filename">.*src.*' \
   | grep --only-matching --extended-regexp '[0-9]+\.[0-9]+(\.[0-9]+)*')
 
-echo "local   = ${local_go_version}"
-echo "current = ${current_go_version}"
-
 if [[ "${local_go_version}" = "${current_go_version}" ]]
 then
-    echo "OK"
+    echo "[  OK  ] local ($local_go_version) == current ($current_go_version)"
 else
-    echo "NOT UP TO DATE"
+    echo "[ FAIL ] NOT UP TO DATE, local ($local_go_version) != current ($current_go_version)"
     exit 1
 fi
