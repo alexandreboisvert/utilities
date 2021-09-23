@@ -72,6 +72,8 @@ Linux is only free if you don't consider your time valuable...
 I don't always test my code, but I do, its in production.
 Technical Debt - pay for it now or pay a lot more later
 It's not a bug, it's a feature.
+Everything that irritates us about others can lead to an understanding of ourselves.
+In order to change the rules, someone has to stay in the game.
 "
 
 echo "${quotes}" | shuf -n1
