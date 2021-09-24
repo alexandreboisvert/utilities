@@ -47,7 +47,8 @@ items_to_remove=".adobe/
 .xsession-errors.old
 .newsboat/cache.db
 .newsboat/history.search
-.newsboat/history.cmdline"
+.newsboat/history.cmdline
+.config/ghb/EncodeLogs"
 
 for item in $items_to_remove
 do
