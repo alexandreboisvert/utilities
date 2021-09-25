@@ -74,6 +74,7 @@ Technical Debt - pay for it now or pay a lot more later
 It's not a bug, it's a feature.
 Everything that irritates us about others can lead to an understanding of ourselves.
 In order to change the rules, someone has to stay in the game.
-The measure of who we are is what we do with what we have."
+The measure of who we are is what we do with what we have.
+You cannot find peace by avoiding life."
 
 echo "${quotes}" | shuf -n1
