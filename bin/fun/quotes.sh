@@ -75,6 +75,7 @@ It's not a bug, it's a feature.
 Everything that irritates us about others can lead to an understanding of ourselves.
 In order to change the rules, someone has to stay in the game.
 The measure of who we are is what we do with what we have.
-You cannot find peace by avoiding life."
+You cannot find peace by avoiding life.
+I'm glad to see I can still laugh this much without chemicals."
 
 echo "${quotes}" | shuf -n1
