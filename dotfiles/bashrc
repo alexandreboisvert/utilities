@@ -29,7 +29,7 @@ HISTFILESIZE=2000000
 
 # GOLANG paths
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/home/alex/go
+export GOPATH="${HOME}/go"
 
 # tree chars
 export TREE_CHARSET="ASCII"
