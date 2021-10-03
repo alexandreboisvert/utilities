@@ -11,4 +11,10 @@ CTRL + n
 # move to the misspelled word and type
 z=
 
+# WHITE SPACE AND TABS
+# Show white spaces and tabs in vim:
+# from: https://stackoverflow.com/questions/1675688
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+:set list
+
 EOF
