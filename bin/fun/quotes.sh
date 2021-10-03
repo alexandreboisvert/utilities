@@ -76,6 +76,7 @@ Everything that irritates us about others can lead to an understanding of oursel
 In order to change the rules, someone has to stay in the game.
 The measure of who we are is what we do with what we have.
 You cannot find peace by avoiding life.
-I'm glad to see I can still laugh this much without chemicals."
+I'm glad to see I can still laugh this much without chemicals.
+A pessimist sees difficulty in every opportunity; an optimist sees the opportunity in every difficulty."
 
 echo "${quotes}" | shuf -n1
