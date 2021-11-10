@@ -81,6 +81,8 @@ A pessimist sees difficulty in every opportunity; an optimist sees the opportuni
 For every complex question, there is a solution that is clear, simple, and wrong.
 Dictatorship is 'shut up'; democracy is 'keep talking'. (La dictature, c'est 'ferme ta gueule'; la démocratie, c'est 'cause toujours'.) - Jean-Louis Barrault
 Action may not always bring happiness, but there is not happiness without action.
-Not everyone who speaks in a pleasant way to you is your friend."
+Not everyone who speaks in a pleasant way to you is your friend.
+What you allow will continue.
+Hang out with people who push you to become the best version of yourself."
 
 echo "${quotes}" | shuf -n1
