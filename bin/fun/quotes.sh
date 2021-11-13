@@ -83,6 +83,8 @@ Dictatorship is 'shut up'; democracy is 'keep talking'. (La dictature, c'est 'fe
 Action may not always bring happiness, but there is not happiness without action.
 Not everyone who speaks in a pleasant way to you is your friend.
 What you allow will continue.
-Hang out with people who push you to become the best version of yourself."
+Hang out with people who push you to become the best version of yourself.
+If your gut is telling you to leave, leave.
+Repetition does not transform a lie into a truth."
 
 echo "${quotes}" | shuf -n1
