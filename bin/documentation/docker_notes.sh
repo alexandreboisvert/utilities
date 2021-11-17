@@ -30,4 +30,10 @@ apt install bash-completion bzip2 cifs-utils curl ethtool exfat-fuse exfat-utils
 
 # if needed --memory 500m
 
+# list all volumes
+docker volume ls
+
+# cleanup old unused volumes
+docker volume prune
+
 EOF
