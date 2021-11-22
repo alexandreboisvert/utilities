@@ -7,7 +7,7 @@
 # makes the script more portable
 local_go_version=$(/usr/local/go/bin/go version | grep --only-matching --extended-regexp '[0-9]+\.[0-9]+(\.[0-9]+)*')
 
-current_go_version=$(curl --max-time 5 --silent --user-agent "mozilla" 'https://golang.org/dl/' \
+current_go_version=$(curl --max-time 5 --silent --user-agent "mozilla" 'https://go.dev/dl/' \
   | grep --extended-regexp '<span class="filename">.*src.*' \
   | grep --only-matching --extended-regexp '[0-9]+\.[0-9]+(\.[0-9]+)*')
 
