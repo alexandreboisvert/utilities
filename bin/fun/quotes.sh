@@ -85,6 +85,8 @@ Not everyone who speaks in a pleasant way to you is your friend.
 What you allow will continue.
 Hang out with people who push you to become the best version of yourself.
 If your gut is telling you to leave, leave.
-Repetition does not transform a lie into a truth."
+Repetition does not transform a lie into a truth.
+Be yourself doesn't mean stay as you are.
+Successful people have a really strong action bias: they just do things."
 
 echo "${quotes}" | shuf -n1
