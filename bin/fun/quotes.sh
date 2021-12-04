@@ -88,6 +88,8 @@ If your gut is telling you to leave, leave.
 Repetition does not transform a lie into a truth.
 Be yourself doesn't mean stay as you are.
 Successful people have a really strong action bias: they just do things.
-Life is tough. It's tougher if you're stupid."
+Life is tough. It's tougher if you're stupid.
+You can always make more money. you can never make more time.
+Once someone has decided to dislike you, everything you do and say will be misinterpreted, and that's absolutely not your problem."
 
 echo "${quotes}" | shuf -n1
