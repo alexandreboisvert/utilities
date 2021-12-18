@@ -33,13 +33,13 @@ then
   do
     if grep -q -E ' +$' "${item}"
     then
-      sed -i -e 's/ \+$//' "${item}"
+      sed --follow-symlinks --in-place --expression 's/ \+$//' "${item}"
     else
       echo "${item} does not have trailing spaces"
     fi
   done
 else
   # else process STDIN and output to STDOUT
-  sed -e 's/ \+$//'
+  sed --expression 's/ \+$//'
 fi
 
