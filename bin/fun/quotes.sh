@@ -92,6 +92,7 @@ Life is tough. It's tougher if you're stupid.
 You can always make more money. you can never make more time.
 Once someone has decided to dislike you, everything you do and say will be misinterpreted, and that's absolutely not your problem.
 Hopefully somebody got fired so that nobody gets fried.
-Narcissism ain't a bad thing.  Sometimes it's the only unconditional love you can get."
+Narcissism ain't a bad thing. Sometimes it's the only unconditional love you can get.
+Don't ever take down a fence until you know the reason why it was put up."
 
 echo "${quotes}" | shuf -n1
