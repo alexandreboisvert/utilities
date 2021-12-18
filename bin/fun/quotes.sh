@@ -90,6 +90,8 @@ Be yourself doesn't mean stay as you are.
 Successful people have a really strong action bias: they just do things.
 Life is tough. It's tougher if you're stupid.
 You can always make more money. you can never make more time.
-Once someone has decided to dislike you, everything you do and say will be misinterpreted, and that's absolutely not your problem."
+Once someone has decided to dislike you, everything you do and say will be misinterpreted, and that's absolutely not your problem.
+Hopefully somebody got fired so that nobody gets fried.
+Narcissism ain't a bad thing.  Sometimes it's the only unconditional love you can get."
 
 echo "${quotes}" | shuf -n1
