@@ -36,4 +36,7 @@ docker volume ls
 # cleanup old unused volumes
 docker volume prune
 
+# UNTESTED Copy all shared libraries for a binary to directory
+ldd file | grep "=> /" | awk '{print \$3}' | xargs -I '{}' cp -v '{}' /destination
+
 EOF
