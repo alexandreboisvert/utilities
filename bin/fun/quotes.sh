@@ -93,6 +93,7 @@ You can always make more money. you can never make more time.
 Once someone has decided to dislike you, everything you do and say will be misinterpreted, and that's absolutely not your problem.
 Hopefully somebody got fired so that nobody gets fried.
 Narcissism ain't a bad thing. Sometimes it's the only unconditional love you can get.
-Don't ever take down a fence until you know the reason why it was put up."
+Don't ever take down a fence until you know the reason why it was put up.
+Lots of people think they lack intelligence when they actually lack courage."
 
 echo "${quotes}" | shuf -n1
