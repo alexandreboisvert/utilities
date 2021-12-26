@@ -1,24 +1,29 @@
 #!/usr/bin/env bash
 
-# Perl checks and compilation
+usage(){
+  cat <<EOF
 
-# Dependencies: perlcritic and perltdiy modules
+Perl checks and compilation
 
-# Minimal parameters validation
-if [ "$1" == "" ] ;
-then
-    echo "Usage: $0 file_to_check.pl" >  /dev/stderr
-    exit 1
-fi
+Dependencies:
+- perlcritic
+- perltdiy
 
-if ! [ -r "$1" ]
-then
-    echo "Usage: $0 file_to_check.pl" >  /dev/stderr
-    exit 1
-fi
+Usage:
+$0 file_to_check.pl
+
+EOF
+}
 
 # stop on any error
 set -e
+
+if [ -z "${1}" ]
+then
+    echo "ERROR: argument required"
+    usage
+    exit 1
+fi
 
 echo "Perl checks"
 perl -w -W -t -T -c "$1"
