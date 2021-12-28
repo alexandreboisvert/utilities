@@ -94,6 +94,8 @@ Once someone has decided to dislike you, everything you do and say will be misin
 Hopefully somebody got fired so that nobody gets fried.
 Narcissism ain't a bad thing. Sometimes it's the only unconditional love you can get.
 Don't ever take down a fence until you know the reason why it was put up.
-Lots of people think they lack intelligence when they actually lack courage."
+Lots of people think they lack intelligence when they actually lack courage.
+Sometimes, you have to let go in order to grow.
+It is possible to commit no mistakes and still lose. That is not a weakness. That is life. -- Jean-Luc Picard Star Trek TNG."
 
 echo "${quotes}" | shuf -n1
