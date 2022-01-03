@@ -33,6 +33,6 @@ clang-format -i "${src_file_name}"
 output_filename="${src_file_name//.c/}"
 echo "Compile and build"
 echo "Output = ${output_filename}"
-gcc -Wall -o "${output_filename}" "${src_file_name}" -lm -static
+gcc -Wall -Wextra -Werror -o "${output_filename}" "${src_file_name}" -lm -static
 
 echo "Done"
