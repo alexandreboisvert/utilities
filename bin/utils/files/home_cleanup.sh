@@ -48,7 +48,9 @@ items_to_remove=".adobe/
 .newsboat/cache.db
 .newsboat/history.search
 .newsboat/history.cmdline
-.config/ghb/EncodeLogs"
+.config/ghb/EncodeLogs
+.cache/youtube-dl
+.cache/yt-dlp"
 
 for item in $items_to_remove
 do
