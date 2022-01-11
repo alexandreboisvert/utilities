@@ -20,4 +20,7 @@ pacman -Syu
 pacman -Si # remote query
 pacman -Qi # local query
 
+# Arch Linux alternative to "apt install build-essential"
+pacman -S base-devel
+
 EOF
