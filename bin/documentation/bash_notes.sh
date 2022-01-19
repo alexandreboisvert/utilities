@@ -4,16 +4,16 @@ cat << EOF
 
 # BASH notes
 
-#####################################################################3
+######################################################################
 # Check out this:
 https://github.com/dylanaraps/pure-bash-bible
 https://github.com/dylanaraps/pure-sh-bible
 
-#####################################################################3
+######################################################################
 # diff on 2 commands outputs
 diff <(tail -n5 file1.txt) <(tail -n5 file2.txt)
 
-#####################################################################3
+######################################################################
 # simple shell expansion
 # will print numbers with leading 0
 for i in {01..05}
@@ -21,7 +21,7 @@ do
   echo "\${i}"
 done
 
-#####################################################################3
+######################################################################
 ### wrong
 #count=1
 #echo "count before \$count"
@@ -41,5 +41,9 @@ done
 #echo "count after \$count"
 
 # it does not work because "|" creates a subshell
+
+######################################################################
+# using [[ ]] instead of [ ]
+# see http://mywiki.wooledge.org/BashGuide/SpecialCharacters
 
 EOF
