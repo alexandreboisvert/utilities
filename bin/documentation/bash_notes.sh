@@ -46,4 +46,14 @@ done
 # using [[ ]] instead of [ ]
 # see http://mywiki.wooledge.org/BashGuide/SpecialCharacters
 
+######################################################################
+# string splitting
+input_string="abc def ghi jkl mno pqr"
+echo "\${input_string}"
+echo "first and last token"
+echo "\${input_string%% *}"
+echo "\${input_string##* }"
+# greedy %% and ##
+# non greedy % and #
+
 EOF
