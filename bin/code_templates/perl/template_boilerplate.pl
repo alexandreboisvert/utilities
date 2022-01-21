@@ -434,6 +434,16 @@ use Getopt::Long;
 
 ######################################################################
 
+## https://stackoverflow.com/questions/4552197/insecure-envenv-while-running-with-t-switch#4552306
+#delete @ENV{ 'PATH', 'IFS', 'CDPATH', 'ENV', 'BASH_ENV' };
+#print("executing an external command\n");
+#my $output = `ls -la /unknown_dir_name 2>&1`;
+#print("output =\n");
+#print($output);
+#exit(0);
+
+######################################################################
+
 # Arguments default values
 my $config_file = "template_boilerplate.json";
 my $int_value   = 0;
