@@ -67,7 +67,8 @@ for item in $items_to_remove
 do
     if [ -e "${home_prefix}/${item}" ]
     then
-        rm -rv -- "${home_prefix:?}/${item:?}"
+        echo "removing ${home_prefix:?}/${item:?}"
+        rm -r -- "${home_prefix:?}/${item:?}"
     fi
 done
 
