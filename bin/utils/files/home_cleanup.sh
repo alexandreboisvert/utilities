@@ -13,6 +13,7 @@ items_to_remove=".adobe/
 .cache/cool-retro-term
 .cache/mesa_shader_cache
 .cache/qtshadercache-x86_64-little_endian-lp64
+.cache/aria2
 .compiz/sessions
 .dvdcss/
 .java/.userPrefs
@@ -43,6 +44,7 @@ items_to_remove=".adobe/
 .w3m/cookie
 .w3m/history
 .wget-hsts
+.kpcli-history
 .xsession-errors
 .xsession-errors.old
 .newsboat/cache.db
