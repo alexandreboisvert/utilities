@@ -101,6 +101,10 @@ Believe those who seek the truth. Doubt those who find it.
 A mistake repeated more than once is a decision.
 Take care of your thoughts when you are alone. Take care of your words when you are with people.
 True friends say good things behind your back and bad things to your face.
-Your comfort zone will destroy your dreams."
+Your comfort zone will destroy your dreams.
+There is no such thing as an overnight success. Not in life. Not in business. Not in the gym.
+Be a maker, not a taker.
+If you think adventure is dangerous, try routine. It's lethal.
+A great man is hard on himself; a small man is hard on others."
 
 echo "${quotes}" | shuf -n1
