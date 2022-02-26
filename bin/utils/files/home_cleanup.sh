@@ -9,16 +9,23 @@ fi
 home_prefix="$HOME"
 
 items_to_remove=".adobe/
+.cache/aria2
 .cache/chromium
 .cache/cool-retro-term
 .cache/mesa_shader_cache
+.cache/midori
 .cache/qtshadercache-x86_64-little_endian-lp64
-.cache/aria2
+.cache/sxiv
+.cache/youtube-dl
+.cache/yt-dlp
 .compiz/sessions
+.config/ghb/EncodeLogs
 .dvdcss/
 .java/.userPrefs
 .kde/share/apps/okular/
+.kpcli-history
 .lesshst
+.local/share/RecentDocuments
 .local/share/baloo
 .local/share/kactivitymanagerd
 .local/share/kate
@@ -29,12 +36,14 @@ items_to_remove=".adobe/
 .local/share/konsole
 .local/share/kscreen
 .local/share/ksysguard
-.local/share/RecentDocuments
 .local/share/recently-used.xbel
 .local/share/user-places.xbel
 .local/share/vlc
 .macromedia/
 .mtpaint
+.newsboat/cache.db
+.newsboat/history.cmdline
+.newsboat/history.search
 .numptyphysics/
 .recently-used
 .sdcv_history
@@ -44,15 +53,8 @@ items_to_remove=".adobe/
 .w3m/cookie
 .w3m/history
 .wget-hsts
-.kpcli-history
 .xsession-errors
-.xsession-errors.old
-.newsboat/cache.db
-.newsboat/history.search
-.newsboat/history.cmdline
-.config/ghb/EncodeLogs
-.cache/youtube-dl
-.cache/yt-dlp"
+.xsession-errors.old"
 
 for item in $items_to_remove
 do
