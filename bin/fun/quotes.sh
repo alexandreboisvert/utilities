@@ -107,6 +107,10 @@ Be a maker, not a taker.
 If you think adventure is dangerous, try routine. It's lethal.
 A great man is hard on himself; a small man is hard on others.
 Being lazy ends up making you more tired.
+Ego is the enemy of creativity and growth.
+Push yourself to be better every day.
+Start alone. Meet people you vibe with. Start an empire together.
+Short-term pleasure is the fastest track to failure.
 It's okay to admit that you don't know or don't understand what's going on."
 
 echo "${quotes}" | shuf -n1
