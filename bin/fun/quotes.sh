@@ -111,6 +111,9 @@ Ego is the enemy of creativity and growth.
 Push yourself to be better every day.
 Start alone. Meet people you vibe with. Start an empire together.
 Short-term pleasure is the fastest track to failure.
-It's okay to admit that you don't know or don't understand what's going on."
+It's okay to admit that you don't know or don't understand what's going on.
+The purpose of knowledge is action, not knowledge.
+Is easier to prevent bad habits than to break them.
+Good conversations with the right people are life changing."
 
 echo "${quotes}" | shuf -n1
