@@ -23,6 +23,10 @@ fmpeg -i audio_and_video.mp4 -c copy -an video_only.mp4
 # NEVER TESTED, memory allocation problems
 ffmpeg -i input.mp4 -vf reverse -af areverse reversed_video.mp4
 
+# invert colors
+ffmpeg -i image.jpg -vf negate image.inverted.jpg
+ffmpeg -i video.mp4 -vf negate video.inverted.mp4
+
 # audio normalization
 
 bytesandbones.wordpress.com
