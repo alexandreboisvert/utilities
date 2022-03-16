@@ -10,6 +10,7 @@ ffmpeg -i input.mp4 -vf 'scale=iw/2:ih/2' input_half_size.mp4
 
 # extract the audio from a video
 ffmpeg -i video.mp4 audio.mp3
+
 # extract the audio from a video (higher quality)
 ffmpeg -i video.mp4 -b:a 320K audio.mp3"
 
@@ -26,6 +27,18 @@ ffmpeg -i input.mp4 -vf reverse -af areverse reversed_video.mp4
 # invert colors
 ffmpeg -i image.jpg -vf negate image.inverted.jpg
 ffmpeg -i video.mp4 -vf negate video.inverted.mp4
+
+# flip video vertically
+ffmpeg -i INPUT -vf vflip -c:a copy OUTPUT
+
+# flip video horizontally
+ffmpeg -i INPUT -vf hflip -c:a copy OUTPUT
+
+# rotate 90 degrees clockwise
+ffmpeg -i INPUT -vf transpose=1 -c:a copy OUTPUT
+
+# rotate 90 degrees counterclockwise
+ffmpeg -i INPUT -vf transpose=2 -c:a copy OUTPUT
 
 # audio normalization
 
