@@ -114,6 +114,9 @@ Short-term pleasure is the fastest track to failure.
 It's okay to admit that you don't know or don't understand what's going on.
 The purpose of knowledge is action, not knowledge.
 Is easier to prevent bad habits than to break them.
-Good conversations with the right people are life changing."
+Good conversations with the right people are life changing.
+Stop quitting every time it gets hard.
+Thinking is difficult, that's why most people judge.
+You learn nothing from life if you think you're right all the time."
 
 echo "${quotes}" | shuf -n1
