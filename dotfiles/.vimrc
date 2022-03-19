@@ -68,3 +68,6 @@ set wildmode=longest:full,full
 
 " reload the file automatically upon external edit
 set autoread
+
+" faster scrolling with modern terminal emulators
+set ttyfast
