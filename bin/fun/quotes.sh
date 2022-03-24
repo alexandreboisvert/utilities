@@ -117,6 +117,8 @@ Is easier to prevent bad habits than to break them.
 Good conversations with the right people are life changing.
 Stop quitting every time it gets hard.
 Thinking is difficult, that's why most people judge.
-You learn nothing from life if you think you're right all the time."
+You learn nothing from life if you think you're right all the time.
+You will never know change without knowing challenge.
+It's not a lack of talent. it's a lack of focus that's stopping you."
 
 echo "${quotes}" | shuf -n1
