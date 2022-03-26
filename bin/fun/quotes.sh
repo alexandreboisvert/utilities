@@ -119,6 +119,7 @@ Stop quitting every time it gets hard.
 Thinking is difficult, that's why most people judge.
 You learn nothing from life if you think you're right all the time.
 You will never know change without knowing challenge.
-It's not a lack of talent. it's a lack of focus that's stopping you."
+It's not a lack of talent. it's a lack of focus that's stopping you.
+Money can't buy happiness but it makes misery so much more comfortable."
 
 echo "${quotes}" | shuf -n1
