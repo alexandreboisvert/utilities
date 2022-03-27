@@ -30,4 +30,5 @@ do
     print width_pixel "\t" height_pixel "\t" duration_ms "\t" duration_h "h" duration_m "m\t" size_bytes;
   }')
   printf "%s\t%s\n" "$output" "$filename"
-done | column --table --table-columns-limit 6
+done | column --table
+# done | column --table --table-columns-limit 6
