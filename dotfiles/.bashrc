@@ -62,3 +62,7 @@ complete -f -F _dotnet_bash_complete dotnet
 GPG_TTY="$(tty)"
 export GPG_TTY
 
+# Disable Accidental Terminal Suspends
+# CTRL-S will freeze the terminal until CTRL-Q
+# Disable CTRL-S, we don't need this with modern terminal emulators
+stty stop undef
