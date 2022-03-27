@@ -37,3 +37,24 @@ export TREE_CHARSET="ASCII"
 # home page for w3m
 export WWW_HOME='https://duckduckgo.com/lite'
 
+# dotnet settings
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_ROOT="${HOME}/.dotnet"
+export PATH="${PATH}:${DOTNET_ROOT}"
+
+# bash parameter completion for the dotnet CLI
+# https://docs.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete
+_dotnet_bash_complete()
+{
+  local word=${COMP_WORDS[COMP_CWORD]}
+  local completions
+  completions="$(dotnet complete --position "${COMP_POINT}" "${COMP_LINE}" 2>/dev/null)"
+  if [[ $? -ne 0 ]]
+  then
+    completions=""
+  fi
+
+  COMPREPLY=( $(compgen -W "$completions" -- "$word") )
+}
+complete -f -F _dotnet_bash_complete dotnet
+
