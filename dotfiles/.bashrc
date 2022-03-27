@@ -58,3 +58,7 @@ _dotnet_bash_complete()
 }
 complete -f -F _dotnet_bash_complete dotnet
 
+# tell gpg to use the tty to get a password
+GPG_TTY="$(tty)"
+export GPG_TTY
+
