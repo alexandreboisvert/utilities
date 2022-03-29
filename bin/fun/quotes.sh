@@ -120,6 +120,7 @@ Thinking is difficult, that's why most people judge.
 You learn nothing from life if you think you're right all the time.
 You will never know change without knowing challenge.
 It's not a lack of talent. it's a lack of focus that's stopping you.
-Money can't buy happiness but it makes misery so much more comfortable."
+Money can't buy happiness but it makes misery so much more comfortable.
+If you want a different result, make a different choice and move."
 
 echo "${quotes}" | shuf -n1
