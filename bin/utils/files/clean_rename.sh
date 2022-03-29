@@ -14,7 +14,7 @@ for current_name in "$@"
 do
   # Important to have . and / in the regex, without it the results
   # could be incorrect.
-  new_name=$(echo -n "$current_name" |  tr -c '[:alnum:].-/' '_')
+  new_name=$(echo -n "$current_name" |  tr -c '[:alnum:].\-/' '_')
   if [ "$new_name" == "$current_name" ]
   then
     echo "clean name already: $current_name"
