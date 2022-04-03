@@ -121,6 +121,8 @@ You learn nothing from life if you think you're right all the time.
 You will never know change without knowing challenge.
 It's not a lack of talent. it's a lack of focus that's stopping you.
 Money can't buy happiness but it makes misery so much more comfortable.
-If you want a different result, make a different choice and move."
+If you want a different result, make a different choice and move.
+Discomfort brings comfort and growth.
+If there is a God, he will have to beg for my forgiveness. -- Wall etching in a concentration camp."
 
 echo "${quotes}" | shuf -n1
