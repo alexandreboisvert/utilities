@@ -9,6 +9,7 @@ fi
 home_prefix="$HOME"
 
 items_to_remove=".adobe/
+.cache/QtWebEngine/Default/Cache
 .cache/aria2
 .cache/chromium
 .cache/cool-retro-term
