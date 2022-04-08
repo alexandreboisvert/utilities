@@ -123,6 +123,9 @@ It's not a lack of talent. it's a lack of focus that's stopping you.
 Money can't buy happiness but it makes misery so much more comfortable.
 If you want a different result, make a different choice and move.
 Discomfort brings comfort and growth.
-If there is a God, he will have to beg for my forgiveness. -- Wall etching in a concentration camp."
+If there is a God, he will have to beg for my forgiveness. -- Wall etching in a concentration camp.
+Feelings are temporary; decisions are permanent.
+Chasing easy money is the quickest way to lose money.
+An investment in yourself is low-risk and high-reward."
 
 echo "${quotes}" | shuf -n1
