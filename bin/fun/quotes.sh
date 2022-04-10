@@ -126,6 +126,8 @@ Discomfort brings comfort and growth.
 If there is a God, he will have to beg for my forgiveness. -- Wall etching in a concentration camp.
 Feelings are temporary; decisions are permanent.
 Chasing easy money is the quickest way to lose money.
-An investment in yourself is low-risk and high-reward."
+An investment in yourself is low-risk and high-reward.
+Don't spend another year doing the same thing.
+Don't let a bad day make you feel like you have a bad life."
 
 echo "${quotes}" | shuf -n1
