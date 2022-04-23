@@ -128,6 +128,13 @@ Feelings are temporary; decisions are permanent.
 Chasing easy money is the quickest way to lose money.
 An investment in yourself is low-risk and high-reward.
 Don't spend another year doing the same thing.
-Don't let a bad day make you feel like you have a bad life."
+Don't let a bad day make you feel like you have a bad life.
+Mistakes are meant for learning, not for repeating.
+Don't burn your opportunities for a temporary comfort.
+Stay away from negative people. They have a problem for every solution.
+Experience is the hardest kind of teacher. It gives you the test first and the lesson afterward.
+If you never feel stupid, you aren't learning.
+The difference between practice and theory is bigger in practice than theory."
+
 
 echo "${quotes}" | shuf -n1
