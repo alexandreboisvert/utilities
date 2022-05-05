@@ -137,7 +137,8 @@ If you never feel stupid, you aren't learning.
 The difference between practice and theory is bigger in practice than theory.
 When you discover your self-worth, you lose interest in anyone who doesn't see it.
 Do good, it will come back to you in unexpected way.
-Man 1: I wonder what god was thinking when he created the man. Man 2: I wonder what man was thinking when he invented god."
-
+Man 1: I wonder what god was thinking when he created the man. Man 2: I wonder what man was thinking when he invented god.
+Hang out with problem solvers, not excuse makers.
+You don't need a lot of friends, just the right ones."
 
 echo "${quotes}" | shuf -n1
