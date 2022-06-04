@@ -139,6 +139,15 @@ When you discover your self-worth, you lose interest in anyone who doesn't see i
 Do good, it will come back to you in unexpected way.
 Man 1: I wonder what god was thinking when he created the man. Man 2: I wonder what man was thinking when he invented god.
 Hang out with problem solvers, not excuse makers.
-You don't need a lot of friends, just the right ones."
+You don't need a lot of friends, just the right ones.
+Arguments are about figuring out what is right, not who is right.
+You're under no obligation to base your decisions on the advice of those who don't have to deal with the results.
+Just because things could have been different, it doesn't mean they would have been better.
+Your worst enemy is your fear of failure.
+Avoid people who aren't good for your mental health.
+Your only permanent home is your body. take care of it.
+A mind that is stretched by a new idea can never go back to its original dimensions.
+If you don't ask, the answer is always no.
+One foot in front of the other. Repeat as often as necessary to finish."
 
 echo "${quotes}" | shuf -n1
