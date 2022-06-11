@@ -148,6 +148,12 @@ Avoid people who aren't good for your mental health.
 Your only permanent home is your body. take care of it.
 A mind that is stretched by a new idea can never go back to its original dimensions.
 If you don't ask, the answer is always no.
-One foot in front of the other. Repeat as often as necessary to finish."
+One foot in front of the other. Repeat as often as necessary to finish.
+An apology without change is just manipulation.
+A wise man ought to realize that health is his most valuable possession.
+Be kind, but learn to say no.
+Courage doesn't always roar. Sometimes courage is the little voice at the end of the day that says I'll try again tomorrow.
+Always give new things a chance. You never know what you'll like.
+Sometimes the most important thing you can do is show up."
 
 echo "${quotes}" | shuf -n1
