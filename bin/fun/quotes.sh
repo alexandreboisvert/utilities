@@ -154,6 +154,13 @@ A wise man ought to realize that health is his most valuable possession.
 Be kind, but learn to say no.
 Courage doesn't always roar. Sometimes courage is the little voice at the end of the day that says I'll try again tomorrow.
 Always give new things a chance. You never know what you'll like.
-Sometimes the most important thing you can do is show up."
+Sometimes the most important thing you can do is show up.
+Politics is the gentle art of getting votes from the poor and campaign funds from the rich, by promising to protect each from the other. -- Ryan Cohen (@ryancohen)
+Hope is being able to see the light despite all the darkness.
+Opportunity finds those who are doing something already.
+Be addicted to bettering yourself.
+Your best asset is yourself. You can become to an enormous degree the person you want to be.
+Buy it nice or buy it twice.
+A man is what he thinks about all day."
 
 echo "${quotes}" | shuf -n1
