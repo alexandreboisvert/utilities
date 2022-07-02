@@ -161,6 +161,9 @@ Opportunity finds those who are doing something already.
 Be addicted to bettering yourself.
 Your best asset is yourself. You can become to an enormous degree the person you want to be.
 Buy it nice or buy it twice.
-A man is what he thinks about all day."
+A man is what he thinks about all day.
+The measure of a man is what he does with power.
+Success is a lousy teacher. It seduces smart people into thinking they can't lose.
+Networking can get you into places degrees can't."
 
 echo "${quotes}" | shuf -n1
