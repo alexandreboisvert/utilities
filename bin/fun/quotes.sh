@@ -164,6 +164,20 @@ Buy it nice or buy it twice.
 A man is what he thinks about all day.
 The measure of a man is what he does with power.
 Success is a lousy teacher. It seduces smart people into thinking they can't lose.
-Networking can get you into places degrees can't."
+Networking can get you into places degrees can't.
+For the sake of your own peace, forgive others.
+Stop worrying about what might happen. Take the chance and see what does happen.
+Action is worry's worst enemy.
+It's not always a competition. It's okay to build others up.
+If I do a job in 30 minutes it's because I spent 10 years learning how to do that in 30 minutes. You owe me for the years, not the minutes. -- Unknown.
+Do not confuse power with greatness.
+If you don't know what your passion is, your priority should be discovering what your passion is.
+Don't let yourself get out of shape. Maintaining is easier than recovering.
+Intelligence comes in three levels: knowledge, wisdom, and understanding.
+Do not allow your loneliness to ruin your standards.
+A man is great not because he hasn't failed; a man is great because failure hasn't stopped him.
+You cannot do all the good the world needs, but the world needs all the good you can do.
+Do it alone. Do it broke. Do it tired. Do it scared. Just do it.
+Ninety percent of being an adult is pretending you're an adult."
 
 echo "${quotes}" | shuf -n1
