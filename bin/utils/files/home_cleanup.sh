@@ -13,6 +13,7 @@ items_to_remove=".adobe/
 .cache/aria2
 .cache/chromium
 .cache/cool-retro-term
+.cache/golangci-lint
 .cache/mesa_shader_cache
 .cache/midori
 .cache/qtshadercache-x86_64-little_endian-lp64
