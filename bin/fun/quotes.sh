@@ -178,6 +178,8 @@ Do not allow your loneliness to ruin your standards.
 A man is great not because he hasn't failed; a man is great because failure hasn't stopped him.
 You cannot do all the good the world needs, but the world needs all the good you can do.
 Do it alone. Do it broke. Do it tired. Do it scared. Just do it.
-Ninety percent of being an adult is pretending you're an adult."
+Ninety percent of being an adult is pretending you're an adult.
+Until you try, you don't know what you can't do.
+Stop cheating on your future with your past. It's over."
 
 echo "${quotes}" | shuf -n1
