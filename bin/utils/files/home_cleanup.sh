@@ -23,6 +23,7 @@ items_to_remove=".adobe/
 .compiz/sessions
 .config/ghb/EncodeLogs
 .dvdcss/
+.dvdisaster
 .java/.userPrefs
 .kde/share/apps/okular/
 .kpcli-history
