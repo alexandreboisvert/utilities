@@ -10,9 +10,9 @@ fi
 if [ -f "$1" ]
 then
     echo "File found, using it as a batch file"
-    yt-dlp     --limit-rate 500k --restrict-filenames --ignore-errors --batch-file "$1"
+    yt-dlp     --limit-rate 750k --restrict-filenames --ignore-errors --batch-file "$1"
 else
     echo "File not found, using it as URL"
-    yt-dlp     --limit-rate 500k --restrict-filenames --ignore-errors "$1"
+    yt-dlp     --limit-rate 750k --restrict-filenames --ignore-errors "$1"
 fi
 
