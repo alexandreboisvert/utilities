@@ -117,7 +117,16 @@ if __name__ == "__main__":
         "Chuck Norris's calendar goes straight from March 31st to April 2. No one fools Chuck Norris.",
         "Chuck Norris wears sunglasses so that his eyes won't hurt the sun.",
         "If you see Chuck Norris crying he will grant you a wish, if your wish is dying.",
-        "When Chuck Norris works out he doesn't get stronger, the machine does."
+        "When Chuck Norris works out he doesn't get stronger, the machine does.",
+        "Chuck Norris was once bitten by a cobra snake. After 3 long days of suffering, the snake died.",
+        "Chuck Norris can pick up a missed call.",
+        "When Chuck Norris does a pushup, he pushes the earth down.",
+        "Chuck Norris' password is the last 9 digits of pi.",
+        "Chuck Norris can clap with one hand.",
+        "Before he goes to sleep, the boogey man checks under his bed for Chuck Norris.",
+        "Chuck Norris does not have near death experiences, Death has near Chuck Norris experiences.",
+        "Chuck Norris gets 4-wheel drive out of his bicycle",
+        "Chuck Norris doesn't mow his lawn. He dares it to grow."
     ]
 
     chosen_fact = facts[random.randrange(len(facts))]
