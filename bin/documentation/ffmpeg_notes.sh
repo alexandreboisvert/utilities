@@ -18,7 +18,13 @@ ffmpeg -i video.mp4 -b:a 320K audio.mp3"
 ffmpeg -i video.gif video.mp4
 
 # extract video from file
-fmpeg -i audio_and_video.mp4 -c copy -an video_only.mp4
+ffmpeg -i audio_and_video.mp4 -c copy -an video_only.mp4
+
+# remove picture (image) from MP3 file
+# -i      : input file
+# -vn     : no video
+# -c copy : copy the media, do not re-encode
+ffmpeg -i music_with_image.mp3 -vn -c copy music_only.mp3
 
 # reverse video
 # NEVER TESTED, memory allocation problems
