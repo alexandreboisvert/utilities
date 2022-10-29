@@ -181,6 +181,8 @@ Do it alone. Do it broke. Do it tired. Do it scared. Just do it.
 Ninety percent of being an adult is pretending you're an adult.
 Until you try, you don't know what you can't do.
 Stop cheating on your future with your past. It's over.
-To the living we owe respect, but to the dead we only owe the truth."
+To the living we owe respect, but to the dead we only owe the truth.
+You can avoid reality, but you cannot avoid the consequences of avoiding reality.
+You get what you tolerate."
 
 echo "${quotes}" | shuf -n1
