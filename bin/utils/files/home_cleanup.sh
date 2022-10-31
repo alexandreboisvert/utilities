@@ -56,6 +56,8 @@ items_to_remove=".adobe/
 .w3m/cookie
 .w3m/history
 .wget-hsts
+.xorgxrdp.10.log
+.xorgxrdp.10.log.old
 .xsession-errors
 .xsession-errors.old"
 
