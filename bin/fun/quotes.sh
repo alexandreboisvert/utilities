@@ -183,6 +183,17 @@ Until you try, you don't know what you can't do.
 Stop cheating on your future with your past. It's over.
 To the living we owe respect, but to the dead we only owe the truth.
 You can avoid reality, but you cannot avoid the consequences of avoiding reality.
-You get what you tolerate."
+You get what you tolerate.
+Opportunity is missed by most people because it is dressed in overalls and looks like work.
+Self-discipline is the best form of self-love.
+Focus on your goals, not your fears.
+You can't go back and change the beginning, but you can start where you are and change the ending.
+It is possible to commit no mistakes and still lose. That is not a weakness; that is life. -- Jean-Luc Picard
+Sucking at something is the first step to being sorta good at something. -- Jake the Dog
+The master has failed more times than the beginner has even tried -- Stephen McCranie
+Treat yourself like you would treat someone you love.
+The only job security you will ever have is your ability to perform.
+The only courage that matters is the kind that gets you from one moment to the next.
+A life spent making mistakes is not only more honorable but more useful than a life spent doing nothing."
 
 echo "${quotes}" | shuf -n1
