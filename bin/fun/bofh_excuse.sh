@@ -466,6 +466,7 @@ It is a layer 8 problem
 The math co-processor had an overflow error that leaked out and shorted the RAM
 Leap second overloaded RHEL6 servers
 DNS server drank too much and had a hiccup
-Your machine had the fuses in backwards."
+Your machine had the fuses in backwards.
+Random number generation is too important to be left to chance."
 
 echo "${excuses}" | shuf -n1
