@@ -194,6 +194,26 @@ The master has failed more times than the beginner has even tried -- Stephen McC
 Treat yourself like you would treat someone you love.
 The only job security you will ever have is your ability to perform.
 The only courage that matters is the kind that gets you from one moment to the next.
-A life spent making mistakes is not only more honorable but more useful than a life spent doing nothing."
+A life spent making mistakes is not only more honorable but more useful than a life spent doing nothing.
+Just because you can afford it, doesn't mean that you should buy it.
+You might be the sweetest peach on the tree, but some people just don't like peaches.
+Vever miss a good opportunity to shut up.
+If you're mad, shut up.
+The grass isn't greener on the other side. The grass is greenest where it's watered.
+You don't have to explain what you don't say.
+Don't believe everything you read online.
+Every person you meet, on any given day, could be going through the worst day of their lives. Be kind. It costs nothing.
+Break only one law at a time. i.e. If you have a dead hooker in your trunk, dont speed and make sure you have working lights on the car.
+Don't work while drunk (including sending emails).
+Eat well, sweat a little, plan ahead, act immediately, mind the budget, and prioritize sleep.
+Be mindful of what you put between yourself and Earth. Always buy good shoes, good tires, and a good mattress.
+Stay fit now, don't wait till you're forty and the doctor gives you a hard wake up call. It will take double the effort, and double the time at least.
+Question everything, and do it with the intent to learn, not refute.
+Compliment people.
+Don't assume your spouse can read your mind.
+A falling knife has no safe end.
+Do not listen to reply, listen to learn.
+Avoid people who blame you for their own behavior.
+Maturity is when you don't force people to choose you."
 
 echo "${quotes}" | shuf -n1
