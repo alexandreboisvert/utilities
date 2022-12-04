@@ -24,6 +24,7 @@ items_to_remove=".adobe/
 .config/ghb/EncodeLogs
 .dvdcss/
 .dvdisaster
+.ipython/profile_default/history.sqlite
 .java/.userPrefs
 .kde/share/apps/okular/
 .kpcli-history
