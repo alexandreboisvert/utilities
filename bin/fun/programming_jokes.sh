@@ -70,13 +70,13 @@ The best thing about a Boolean is even if you are wrong, you are only off by a b
 A good programmer is someone who always looks both ways before crossing a one-way street.
 QAs consist of 55% water, 30% blood and 15% Jira tickets.
 How many QAs does it take to change a lightbulb? They noticed that the room was dark. They don't fix problems, they find them.
-A programmer crashes a car at the bottom of a hill, a bystander asks what happened, he says <<No idea. Let's push it back up and try again>>.
+A programmer crashes a car at the bottom of a hill, a bystander asks what happened, he says ''No idea. Let's push it back up and try again''.
 Writing PHP is like peeing in the swimming pool, everyone did it, but we don't need to bring it up in public.
 Why did the QA cross the road? To ruin everyone's day.
 Number of days since I have encountered an array index error: -1.
 Number of days since I have encountered an off-by-one error: 0.
 Speed dating is useless. 5 minutes is not enough to properly explain the benefits of the Unix philosophy.
-Microsoft hold a bi-monthly internal <<productive week>> where they use Google instead of Bing.
+Microsoft hold a bi-monthly internal ''productive week'' where they use Google instead of Bing.
 Schrodinger's attitude to web development: If I don't look at it in Internet Explorer then there's a chance it looks fine.
 Finding a good PHP developer is like looking for a needle in a haystack. Or is it a hackstack in a needle?
 Unix is user friendly. It's just very particular about who its friends are.
