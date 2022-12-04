@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-if [ -z "$HOME" ]
+if [ -z "${HOME}" ]
 then
     echo "can't find HOME directory"
     exit 1
 fi
 
-home_prefix="$HOME"
+home_prefix="${HOME}"
 
 items_to_remove=".adobe/
 .cache/QtWebEngine/Default/Cache
@@ -62,7 +62,7 @@ items_to_remove=".adobe/
 .xsession-errors
 .xsession-errors.old"
 
-for item in $items_to_remove
+for item in ${items_to_remove}
 do
     if [ -e "${home_prefix}/${item}" ]
     then
@@ -73,7 +73,7 @@ done
 echo "press enter to delete, ctrl c to stop"
 read -r
 
-for item in $items_to_remove
+for item in ${items_to_remove}
 do
     if [ -e "${home_prefix}/${item}" ]
     then
