@@ -12,7 +12,7 @@ ffmpeg -i input.mp4 -vf 'scale=iw/2:ih/2' input_half_size.mp4
 ffmpeg -i video.mp4 audio.mp3
 
 # extract the audio from a video (higher quality)
-ffmpeg -i video.mp4 -b:a 320K audio.mp3"
+ffmpeg -i video.mp4 -b:a 320K audio.mp3
 
 # convert a GIF to MP4 (significant space savings)
 ffmpeg -i video.gif video.mp4
