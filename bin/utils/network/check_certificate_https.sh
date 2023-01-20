@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-if [ -z "$1" ]
+url="$1"
+
+if [[ -z "${url}" ]]
 then
     echo "[ FAIL ] provide the URL for the website to check"
     exit 1
 fi
 
-if ! echo "$1" | grep --quiet --extended-regexp '^https://'
+if ! echo "${url}" | grep --quiet --extended-regexp '^https://'
 then
     echo '[ FAIL ] provide the URL starting with "https://..."'
     exit 1
@@ -22,11 +24,17 @@ expiration_date=$(curl \
     --no-keepalive \
     --user-agent mozilla \
     --verbose \
-    "$1" \
+    "${url}" \
     2>&1 \
 | awk 'BEGIN{ FS="date: "}
     /expire date/ {print $2}
     END{}')
+
+if [[ -z "${expiration_date}" ]]
+then
+  echo "[ FAIL ] unable to fetch date from ${url}"
+  exit 1
+fi
 
 expiration_ts=$(date -d "${expiration_date}" +%s)
 
@@ -38,7 +46,7 @@ max_delay_text="2 weeks"
 
 (( diff_ts="${expiration_ts}"-"${current_ts}" ))
 
-if [ "${diff_ts}" -lt "${max_delay}" ]
+if [[ "${diff_ts}" -lt "${max_delay}" ]]
 then
     echo "[ FAIL ] expiration for $1 in less than ${max_delay_text}"
 else
