@@ -65,4 +65,8 @@ $ awk 'BEGIN{for(i=0;i<10;i++) print i, i*i}'
 # only print lines between 10 and 20
 $ ps -ef | awk 'NR==10, NR==20 {print NR, \$0}'
 
+# match something in the first field and second field
+# and count the rows
+$ cmd_or_script | awk 'BEGIN{r = 0} \$1 == 1 && \$2 ~ /^regex\$/ { r += 1} END{print r}'
+
 EOF
