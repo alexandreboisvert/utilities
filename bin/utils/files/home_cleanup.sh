@@ -22,6 +22,8 @@ items_to_remove=".adobe/
 .cache/yt-dlp
 .compiz/sessions
 .config/ghb/EncodeLogs
+.config/transmission/resume
+.config/transmission/torrents
 .dvdcss/
 .dvdisaster
 .imibrowser
