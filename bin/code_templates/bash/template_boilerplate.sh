@@ -22,8 +22,8 @@ write_msg(){
     # Writing a message in a proper log format (date-time-message)
     # $1: message to write
     date_log=$(date "+%Y-%m-%d %H:%M:%S")
-    [ "$verbose_mode" -ne "0" ] && echo "$date_log $1"
-    echo "$date_log $1" >> $log_file
+    [ "${verbose_mode}" -ne "0" ] && echo "${date_log} $1"
+    echo "${date_log} $1" >> "${log_file}"
 }
 
 ######################################################################
@@ -39,7 +39,7 @@ Usage: $0 [-h] [-v] [-l log_file]
 Options:
 - h: display this help message and exit.
 - v: the script becomes more verbose.
-- l: specify the log file name (default = $log_file)
+- l: specify the log file name (default = ${log_file})
 
 Typical use:
 $0 -v -l ~/log.txt
@@ -54,13 +54,13 @@ EOF
 # x: ==> argument x requires a value
 while getopts "hl:v" OPTION
 do
-    case $OPTION in
+    case ${OPTION} in
         h)
             usage
             exit 0
             ;;
         l)
-            log_file="$OPTARG"
+            log_file="${OPTARG}"
             ;;
         v)
             verbose_mode=1
@@ -73,9 +73,9 @@ do
     esac
 done
 
-[ "$verbose_mode" -eq "1" ] && write_msg "Verbose mode activated"
+[ "${verbose_mode}" -eq "1" ] && write_msg "Verbose mode activated"
 
-write_msg "log file location = $log_file"
+write_msg "log file location = ${log_file}"
 
 write_msg "End process"
 
