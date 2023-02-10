@@ -214,6 +214,13 @@ Don't assume your spouse can read your mind.
 A falling knife has no safe end.
 Do not listen to reply, listen to learn.
 Avoid people who blame you for their own behavior.
-Maturity is when you don't force people to choose you."
+Maturity is when you don't force people to choose you.
+The purpose of knowledge is action, not knowledge. -- Aristotle
+Knowledge isn't free. You have to pay attention. -- Richard Feynman
+Information is not truth. -- Yuval Noah Harari
+If I were the plaything of every thought, I would be a fool, not a wise man. -- Rumi
+Dhamma is in your mind, not in the forest. You don't have to go and look anywhere else. -- Ajahn Chah
+Man has set for himself the goal of conquering the world, but in the process he loses his soul. -- Alexander Solzhenitsyn
+Addiction is giving up everything for one thing, sobriety is giving up one thing for everything -- AA"
 
 echo "${quotes}" | shuf -n1
