@@ -69,4 +69,8 @@ $ ps -ef | awk 'NR==10, NR==20 {print NR, \$0}'
 # and count the rows
 $ cmd_or_script | awk 'BEGIN{r = 0} \$1 == 1 && \$2 ~ /^regex\$/ { r += 1} END{print r}'
 
+# extract a particular field
+# only for GNU AWK http://www.gnu.org/software/gawk/
+$ cmd_or_script | awk 'match(\$0, /price = ([0-9]+) USD/, g){print g[1]}'
+
 EOF
