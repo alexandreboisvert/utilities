@@ -221,6 +221,19 @@ Information is not truth. -- Yuval Noah Harari
 If I were the plaything of every thought, I would be a fool, not a wise man. -- Rumi
 Dhamma is in your mind, not in the forest. You don't have to go and look anywhere else. -- Ajahn Chah
 Man has set for himself the goal of conquering the world, but in the process he loses his soul. -- Alexander Solzhenitsyn
-Addiction is giving up everything for one thing, sobriety is giving up one thing for everything -- AA"
+Addiction is giving up everything for one thing, sobriety is giving up one thing for everything -- AA
+Experience is merely the name men gave to their mistakes. -- Oscar Wilde, The Picture of Dorian Gray
+Nothing is forever. Don't take it for granted.
+Growth and comfort do not coexist
+Your fear of looking stupid is holding you back.
+That move you're afraid to make might just be the one that changes everything.
+A man is great not because he hasn't failed; a man is great because failure hasn't stopped him.
+Speak when you are angry and you will make the best speech you will ever regret.
+Your rights matter because you never know when you're going to need them.
+Either you run the day or the day runs you.
+Don't talk about what you're going to do. Just do it and let your actions speak for you.
+Too often we enjoy the comfort of opinion without the discomfort of thought.
+He who angers you conquers you."
+
 
 echo "${quotes}" | shuf -n1
