@@ -38,6 +38,9 @@ What's the worst that could happen?
 Whatever.
 Who wants to live forever?
 Why not?
-You only die once."
+You only die once.
+At least it will make a good story.
+Only one way to find out.
+Let's fuck around and find out."
 
 echo "${last_words}" | shuf -n1
