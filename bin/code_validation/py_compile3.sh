@@ -11,7 +11,7 @@ Dependencies:
 flake8 (uses pep8 and flake)
 
 Usage:
-$0 program_name.py
+$0 program1.py promgram2.py ...
 
 EOF
 }
@@ -26,9 +26,12 @@ then
     exit 1
 fi
 
-echo "flake8 validation and python compilation "
-# E501: line too long
-# This error can be ignored for all practical purposes
-flake8 --ignore='E501' "$1"
+for filename in "$@"
+do
+  echo "flake8 validation and python compilation "
+  # E501: line too long
+  # This error can be ignored for all practical purposes
+  flake8 --ignore='E501' "${filename}"
 
-python3 -m py_compile "$1"
+  python3 -m py_compile "${filename}"
+done
