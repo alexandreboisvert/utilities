@@ -36,7 +36,7 @@ EOF
 
 write_message(){
   # write to stderr, leaving stdout for the results
-  echo "$(date '+%Y-%m-%d %H:%M:%S.%N') $1" >> /dev/stderr
+  echo "$(date --rfc-3339=ns) $1" >> /dev/stderr
 }
 
 ######################################################################
@@ -46,19 +46,19 @@ write_message(){
 # x: ==> argument x requires a value
 while getopts "hb:t:l:" OPTION
 do
-  case $OPTION in
+  case ${OPTION} in
     h)
       usage
       exit 0
       ;;
     b)
-      batch_size="$OPTARG"
+      batch_size="${OPTARG}"
       ;;
     l)
-      host_list_filename="$OPTARG"
+      host_list_filename="${OPTARG}"
       ;;
     t)
-      ping_timeout="$OPTARG"
+      ping_timeout="${OPTARG}"
       ;;
     # Handling the incorrect arguments
     *)

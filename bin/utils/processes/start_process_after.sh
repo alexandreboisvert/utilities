@@ -21,8 +21,8 @@ cmd=""
 write_msg(){
     # Writing a message in a proper log format (date-time-message)
     # $1: message to write
-    date_log=$(date "+%Y-%m-%d %H:%M:%S")
-    [ "$verbose_mode" -ne "0" ] && echo "$date_log $1"
+    date_log=$(date --rfc-3339=second)
+    [ "${verbose_mode}" -ne "0" ] && echo "${date_log} $1"
 }
 
 ######################################################################
@@ -60,29 +60,29 @@ EOF
 # x: ==> argument x requires a value
 while getopts "hp:c:v" OPTION
 do
-    case $OPTION in
+    case ${OPTION} in
         h)
             usage
             exit 0
             ;;
         p)
-            pid="$OPTARG"
+            pid="${OPTARG}"
             ;;
         c)
-            cmd="$OPTARG"
+            cmd="${OPTARG}"
             ;;
         v)
             verbose_mode=1
             ;;
         # Handling the incorrect arguments
-        ?)
+        *)
             usage
             exit 1
             ;;
     esac
 done
 
-[ "$verbose_mode" -eq "1" ] && write_msg "Verbose mode activated"
+[ "${verbose_mode}" -eq "1" ] && write_msg "Verbose mode activated"
 
 # arguments validation:
 # PID must be numeric, CMD must be non-empty

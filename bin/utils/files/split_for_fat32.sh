@@ -14,8 +14,8 @@ split_size=500000000
 
 write_msg(){
     # $1: message to write
-    date_log=$(date "+%Y-%m-%d %H:%M:%S")
-    echo "$date_log $1"
+    date_log=$(date --rfc-3339=second)
+    echo "${date_log} $1"
 }
 
 ######################################################################
@@ -48,7 +48,7 @@ EOF
 # x: ==> argument x requires a value
 while getopts "hi:" OPTION
 do
-    case $OPTION in
+    case ${OPTION} in
         h)
             usage
             exit 0
@@ -57,7 +57,7 @@ do
             input_file="${OPTARG}"
             ;;
         # Handling the incorrect arguments
-        ?)
+        *)
             usage
             exit 1
             ;;

@@ -9,8 +9,8 @@ input_dir=""
 
 write_msg(){
     # $1: message to write
-    date_log=$(date "+%Y-%m-%d %H:%M:%S")
-    echo "$date_log $1"
+    date_log=$(date --rfc-3339=second)
+    echo "${date_log} $1"
 }
 
 ######################################################################
@@ -43,7 +43,7 @@ EOF
 # x: ==> argument x requires a value
 while getopts "hd:" OPTION
 do
-    case $OPTION in
+    case ${OPTION} in
         h)
             usage
             exit 0
@@ -52,7 +52,7 @@ do
             input_dir="${OPTARG}"
             ;;
         # Handling the incorrect arguments
-        ?)
+        *)
             usage
             exit 1
             ;;
