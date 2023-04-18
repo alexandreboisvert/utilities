@@ -18,7 +18,7 @@ I find the fact that you lived this long both surprising and disappointing.
 If I throw a stick, will you leave?
 You're impossible to underestimate.
 You are the reason why shampoo has instructions.
-You have a great face for radio.
+You have a face for radio and a voice for silent film.
 Somewhere somehow you are robbing a village of an idiot.
 Everyone who ever loved you was wrong.
 Your face makes blind kids cry.
