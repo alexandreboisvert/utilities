@@ -233,7 +233,9 @@ Your rights matter because you never know when you're going to need them.
 Either you run the day or the day runs you.
 Don't talk about what you're going to do. Just do it and let your actions speak for you.
 Too often we enjoy the comfort of opinion without the discomfort of thought.
-He who angers you conquers you."
+He who angers you conquers you.
+Success has 1000 fathers and failure is an orphan.
+They have watches, we have time -- Afghanistan saying."
 
 
 echo "${quotes}" | shuf -n1
