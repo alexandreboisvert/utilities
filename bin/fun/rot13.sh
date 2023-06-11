@@ -36,8 +36,8 @@ case "$1" in
     shift
     for filename in "$@"
     do
-      echo "$filename"
-      tr 'a-zA-Z' 'n-za-mN-ZA-M' < "$filename"
+      echo "${filename}"
+      tr 'a-zA-Z' 'n-za-mN-ZA-M' < "${filename}"
     done
     ;;
   # Handling the incorrect arguments
