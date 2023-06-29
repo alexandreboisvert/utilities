@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -z "${HOME}" ]
+if [[ -z "${HOME}" ]]
 then
     echo "can't find HOME directory"
     exit 1
@@ -67,7 +67,7 @@ items_to_remove=".adobe/
 
 for item in ${items_to_remove}
 do
-    if [ -e "${home_prefix}/${item}" ]
+    if [[ -e "${home_prefix}/${item}" ]]
     then
         du -sh "${home_prefix}/${item}"
     fi
@@ -78,7 +78,7 @@ read -r
 
 for item in ${items_to_remove}
 do
-    if [ -e "${home_prefix}/${item}" ]
+    if [[ -e "${home_prefix}/${item}" ]]
     then
         echo "removing ${home_prefix:?}/${item:?}"
         rm -r -- "${home_prefix:?}/${item:?}"
@@ -94,5 +94,11 @@ find "${home_prefix}/.cache/sxiv" -type f -print -delete
 
 echo "Golang Cache Cleanup"
 go clean -cache
+
+echo "MEGA old logs"
+if [[ -d "${home_prefix}/.local/share/data/Mega Limited/MEGAsync/logs" ]]
+then
+  find "${home_prefix}/.local/share/data/Mega Limited/MEGAsync/logs" -mtime +3 -type f -iname 'MEGAsync*.log' -print -delete
+fi
 
 exit 0
