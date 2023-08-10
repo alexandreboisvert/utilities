@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+set -e
+
+touch ~/.w3m/history
+
 w3m -no-mouse -no-cookie -no-graph -s -W "$@"
 
 #     -no-mouse        don't use mouse
