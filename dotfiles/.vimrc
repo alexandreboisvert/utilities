@@ -71,3 +71,7 @@ set autoread
 
 " faster scrolling with modern terminal emulators
 set ttyfast
+
+" easy paste from clipboard
+set paste
+
