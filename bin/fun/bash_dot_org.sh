@@ -10,6 +10,8 @@
 # - html2text: usually available in the repos, but could require
 #   a compilation.
 
+set -e pipefail
+
 ######################################################################
 # Constants and global variables (default values)
 
@@ -71,7 +73,7 @@ done
 
 write_msg "bash_dot_org - BEGIN"
 
-if [ -z "${search_string}" ]
+if [[ -z "${search_string}" ]]
 then
   curl --silent --user-agent "Mozilla" 'http://bash.org/?random1' \
     | html2text -utf8

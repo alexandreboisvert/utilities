@@ -18,7 +18,7 @@ files a.txt b.txt c.txt : process all the files a.txt, b.txt and c.txt.
 EOF
 }
 
-if [ -z "$1" ]
+if [[ -z "$1" ]]
 then
  usage
  exit 1
