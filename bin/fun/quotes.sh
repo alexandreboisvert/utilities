@@ -235,7 +235,13 @@ Don't talk about what you're going to do. Just do it and let your actions speak 
 Too often we enjoy the comfort of opinion without the discomfort of thought.
 He who angers you conquers you.
 Success has 1000 fathers and failure is an orphan.
-They have watches, we have time -- Afghanistan saying."
+They have watches, we have time -- Afghanistan saying.
+It's easy to make a buck. It's a lot tougher to make a difference.
+People may doubt what you say, but they will believe what you do.
+Dont't try to create and analyze at the same time. They're different processes.
+Surrounding yourself with smaller people does not make you a giant.
+Elect a clown, expect a circus.
+The truth has no defence against a fool determined to believe a lie."
 
 
 echo "${quotes}" | shuf -n1
