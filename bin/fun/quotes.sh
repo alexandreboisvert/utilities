@@ -241,7 +241,9 @@ People may doubt what you say, but they will believe what you do.
 Dont't try to create and analyze at the same time. They're different processes.
 Surrounding yourself with smaller people does not make you a giant.
 Elect a clown, expect a circus.
-The truth has no defence against a fool determined to believe a lie."
+The truth has no defence against a fool determined to believe a lie.
+If you cannot do great things, do small things in a great way.
+If you don't know where you are going, you will probably end up somewhere else."
 
 
 echo "${quotes}" | shuf -n1
