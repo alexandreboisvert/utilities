@@ -243,7 +243,7 @@ Surrounding yourself with smaller people does not make you a giant.
 Elect a clown, expect a circus.
 The truth has no defence against a fool determined to believe a lie.
 If you cannot do great things, do small things in a great way.
-If you don't know where you are going, you will probably end up somewhere else."
-
+If you don't know where you are going, you will probably end up somewhere else.
+There are only two kinds of programming languages: the ones people complain about and the ones nobody uses. -- Bjarne Stroustrup"
 
 echo "${quotes}" | shuf -n1
