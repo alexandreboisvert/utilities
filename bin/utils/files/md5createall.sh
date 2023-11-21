@@ -62,8 +62,10 @@ do
     esac
 done
 
+write_msg "Creating MD5 for files"
+
 for file_name in "$@"
 do
-    write_msg "Creating MD5 for: ${file_name}"
+    write_msg "${file_name}"
     find "${file_name}" -type f -execdir bash -c 'process_md5 "$1"' _ {} \;
 done
