@@ -21,7 +21,7 @@ cmd=""
 write_msg(){
     # Writing a message in a proper log format (date-time-message)
     # $1: message to write
-    date_log=$(date --rfc-3339=second)
+    date_log=$(date '+%Y-%m-%d %H:%M:%S')
     [ "${verbose_mode}" -ne "0" ] && echo "${date_log} $1"
 }
 

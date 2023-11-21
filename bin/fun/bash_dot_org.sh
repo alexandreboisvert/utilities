@@ -23,7 +23,7 @@ search_string=""
 
 write_msg(){
     # $1: message to write
-    date_log=$(date --rfc-3339=second)
+    date_log=$(date '+%Y-%m-%d %H:%M:%S')
     echo "${date_log} $1"
 }
 
