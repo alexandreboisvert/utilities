@@ -101,4 +101,8 @@ then
   find "${home_prefix}/.local/share/data/Mega Limited/MEGAsync/logs" -mtime +3 -type f -iname 'MEGAsync*.log' -print -delete
 fi
 
+echo "VLC recent items list"
+[[ -f "${home_prefix}/.config/vlc/vlc-qt-interface.conf" ]] && sed -i -e 's/^list=.*/list=@Invalid()/' "${home_prefix}/.config/vlc/vlc-qt-interface.conf"
+[[ -f "${home_prefix}/.config/vlc/vlc-qt-interface.conf" ]] && sed -i -e 's/^times=.*/times=@Invalid()/' "${home_prefix}/.config/vlc/vlc-qt-interface.conf"
+
 exit 0
