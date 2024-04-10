@@ -41,6 +41,10 @@ Why not?
 You only die once.
 At least it will make a good story.
 Only one way to find out.
-Let's fuck around and find out."
+Let's fuck around and find out.
+I'm not sure how this is going to end, but I promise you this, I won't lack confidence.
+Chicks dig scars.
+Glory lasts forever.
+As long as no one from the future comes back in time to stop me, how bad can it be?"
 
 echo "${last_words}" | shuf -n1
