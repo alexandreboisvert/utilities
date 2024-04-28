@@ -18,6 +18,7 @@ items_to_remove=".adobe/
 .cache/midori
 .cache/qtshadercache-x86_64-little_endian-lp64
 .cache/sxiv
+.cache/vlc/art
 .cache/youtube-dl
 .cache/yt-dlp
 .compiz/sessions
