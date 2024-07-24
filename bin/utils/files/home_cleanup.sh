@@ -16,9 +16,11 @@ items_to_remove=".adobe/
 .cache/golangci-lint
 .cache/mesa_shader_cache
 .cache/midori
+.cache/mpv
 .cache/qtshadercache-x86_64-little_endian-lp64
 .cache/sxiv
 .cache/vlc/art
+.cache/yarn
 .cache/youtube-dl
 .cache/yt-dlp
 .compiz/sessions
@@ -49,6 +51,7 @@ items_to_remove=".adobe/
 .local/share/vlc
 .macromedia/
 .mtpaint
+.mupdf.history
 .newsboat/cache.db
 .newsboat/history.cmdline
 .newsboat/history.search
@@ -63,6 +66,7 @@ items_to_remove=".adobe/
 .wget-hsts
 .xorgxrdp.10.log
 .xorgxrdp.10.log.old
+.xpdf.pages
 .xsession-errors
 .xsession-errors.old"
 
@@ -95,6 +99,8 @@ find "${home_prefix}/.cache/sxiv" -type f -print -delete
 
 echo "Golang Cache Cleanup"
 go clean -cache
+go clean -testcache
+go clean -modcache
 
 echo "MEGA old logs"
 if [[ -d "${home_prefix}/.local/share/data/Mega Limited/MEGAsync/logs" ]]
@@ -105,5 +111,9 @@ fi
 echo "VLC recent items list"
 [[ -f "${home_prefix}/.config/vlc/vlc-qt-interface.conf" ]] && sed -i -e 's/^list=.*/list=@Invalid()/' "${home_prefix}/.config/vlc/vlc-qt-interface.conf"
 [[ -f "${home_prefix}/.config/vlc/vlc-qt-interface.conf" ]] && sed -i -e 's/^times=.*/times=@Invalid()/' "${home_prefix}/.config/vlc/vlc-qt-interface.conf"
+find ~/.cache/vlc/art -type f -print -delete
+
+echo "GIO trash"
+gio trash --empty
 
 exit 0
