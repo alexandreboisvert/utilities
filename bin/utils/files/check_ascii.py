@@ -27,7 +27,7 @@ if __name__ == "__main__":
     if args_container.input_filename is None:
         lines = sys.stdin.readlines()
     else:
-        fh = open(args_container.input_filename)
+        fh = open(args_container.input_filename, "rt", errors="ignore")
         lines = fh.readlines()
         fh.close()
 
