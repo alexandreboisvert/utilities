@@ -21,11 +21,6 @@ write_msg(){
     echo "${date_log} $1"
 }
 
-stop_on_error(){
-    # $1: $? the return code from the preceding statement
-    [ "$1" -ne "0" ] && echo "Error occured ($1), exiting" > /dev/stderr && exit "$1"
-}
-
 ######################################################################
 # Argument parsing
 
@@ -33,8 +28,6 @@ usage(){
     # Displays the short help message
     # EOF placement is important
     cat << EOF
-
-USE SUDO
 
 VeraCrypt Crack: try a password list on a VC volume.
 
@@ -46,7 +39,7 @@ Options:
 - m: The target mount point (directory)
 - p: The passwords file to try (one word per line)
 
-Make sure to use with sudo!
+Make sure to use as root!
 
 EOF
 }
@@ -82,22 +75,29 @@ done
 
 write_msg "VeraCrypt Crack: Begin"
 
+# Before anything else, make sure this is run as root
+if [[ "${EUID}" -ne 0 ]]
+then
+  write_msg "Run this script as root"
+  exit 1
+fi
+
 # Args validation
 valid_input_vc_container=0
 valid_target_mount_dir=0
 valid_password_file=0
 
-if [ -f "${input_vc_container}" ] &&  [ -r "${input_vc_container}" ]
+if [[ -f "${input_vc_container}" ]] &&  [[ -r "${input_vc_container}" ]]
 then
     valid_input_vc_container=1
 fi
 
-if [ -d "${target_mount_dir}" ]
+if [[ -d "${target_mount_dir}" ]]
 then
     valid_target_mount_dir=1
 fi
 
-if [ -f "${password_file}" ] && [ -r "${password_file}" ]
+if [[ -f "${password_file}" ]] && [[ -r "${password_file}" ]]
 then
     valid_password_file=1
 fi
@@ -107,9 +107,9 @@ write_msg "Input container is valid:        ${valid_input_vc_container}"
 write_msg "Target mount directory is valid: ${valid_target_mount_dir}"
 write_msg "Password file is valid:          ${valid_password_file}"
 
-if [ "${valid_input_vc_container}" -eq "0" ] || \
-   [ "${valid_target_mount_dir}" -eq "0" ] || \
-   [ "${valid_password_file}" -eq "0" ]
+if [[ "${valid_input_vc_container}" -eq "0" ]] || \
+   [[ "${valid_target_mount_dir}" -eq "0" ]] || \
+   [[ "${valid_password_file}" -eq "0" ]]
 then
     usage
     exit 1
@@ -119,7 +119,6 @@ write_msg "Starting password list:"
 
 while read -r current_password
 do
-    #echo "Password = $current_password"
     if veracrypt -t --non-interactive --protect-hidden=no --password="${current_password}" "${input_vc_container}" "${target_mount_dir}" 2>/dev/null
     then
         write_msg "OK: ${current_password}"
