@@ -9,8 +9,6 @@
 # part of perlstyle: http://perldoc.perl.org/perlstyle.html
 use strict;
 use warnings;
-use sigtrap;
-use diagnostics;
 
 # Arguments parsing
 use Getopt::Long;

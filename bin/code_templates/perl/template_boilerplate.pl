@@ -11,7 +11,11 @@
 # part of perlstyle: http://perldoc.perl.org/perlstyle.html
 use strict;
 use warnings;
+
+# When we need to catch signals
 use sigtrap;
+
+# Useful in debug/development. Severe performance impact.
 use diagnostics;
 
 # Arguments parsing

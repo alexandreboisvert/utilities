@@ -12,7 +12,10 @@
 use strict;
 use warnings;
 
+# When we need to catch signals
 use sigtrap;
+
+# Useful in debug/development. Severe performance impact.
 use diagnostics;
 
 # apt install libmodern-perl-perl

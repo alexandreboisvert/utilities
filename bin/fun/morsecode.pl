@@ -9,8 +9,6 @@
 # part of perlstyle: http://perldoc.perl.org/perlstyle.html
 use strict;
 use warnings;
-use sigtrap;
-use diagnostics;
 
 # more elegant function than die: croak
 use Carp;
