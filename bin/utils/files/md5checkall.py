@@ -38,9 +38,9 @@ def get_directory_from_args() -> str:
 
 def process_md5(path: str):
     """Check the MD5 checksums for a given file"""
+    # simulating a push/pop to come back to the proper directory
+    current_dir = os.getcwd()
     try:
-        # simulating a push/pop to come back to the proper directory
-        current_dir = os.getcwd()
         with open(path, "rt") as md5_file:
             new_dir = os.path.dirname(path)
             os.chdir(new_dir)
@@ -61,10 +61,10 @@ def process_md5(path: str):
                     break
             if not failure:
                 print_log("[  OK  ] {}".format(path))
-        # end of the push/pop
-        os.chdir(current_dir)
     except Exception as e:
         print_log("[ FAIL ] error processing file {} : {}".format(path, e))
+    # end of the push/pop
+    os.chdir(current_dir)
 
 
 def main():
