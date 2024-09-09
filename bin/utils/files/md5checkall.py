@@ -9,6 +9,7 @@ import argparse
 import datetime
 import hashlib
 import os
+import re
 import sys
 
 
@@ -46,12 +47,10 @@ def process_md5(path: str):
             os.chdir(new_dir)
             failure = False
             for line in md5_file.readlines():
-                tokens = line.split()
-                expected_checksum = tokens[0]
-                filename = tokens[1]
                 # some MD5 files use a *
-                if filename.startswith("*"):
-                    filename = filename[1:]
+                m = re.match(r"([a-fA-F0-9]{32})\s+\*{0,1}(.+)", line)
+                expected_checksum = m.group(1)
+                filename = m.group(2)
                 with open(filename, "rb") as fhandle:
                     md5_digest = hashlib.file_digest(fhandle, "md5")
                 computed_checksum = md5_digest.hexdigest()
