@@ -22,7 +22,7 @@ write_msg(){
     # Writing a message in a proper log format (date-time-message)
     # $1: message to write
     date_log=$(date "+%Y-%m-%d %H:%M:%S")
-    [ "${verbose_mode}" -ne "0" ] && echo "${date_log} $1"
+    [[ "${verbose_mode}" -ne "0" ]] && echo "${date_log} $1"
     echo "${date_log} $1" >> "${log_file}"
 }
 
@@ -73,7 +73,7 @@ do
     esac
 done
 
-[ "${verbose_mode}" -eq "1" ] && write_msg "Verbose mode activated"
+[[ "${verbose_mode}" -eq "1" ]] && write_msg "Verbose mode activated"
 
 write_msg "log file location = ${log_file}"
 
