@@ -28,7 +28,7 @@ fi
 
 if echo "$1" | grep -q -o -E '^[0-9]+$'
 then
-  yes "${lorem_text}" | head -n "$1"  
+  yes "${lorem_text}" | head -n "$1"
 else
   echo "invalid number, see 'help'"
   exit 1
