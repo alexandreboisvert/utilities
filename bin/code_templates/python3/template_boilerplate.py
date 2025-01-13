@@ -17,6 +17,10 @@ import sys
 # works on linux, not tested on windows
 import syslog
 
+# HTTPS libraries
+import ssl
+import urllib.request
+
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
 
@@ -79,6 +83,16 @@ def main():
         print(value_exception)
 
     print("message1", "message2")
+
+    current_context = ssl.create_default_context()
+
+    if arguments_container.int_value < 1:
+        current_context.check_hostname = False
+        current_context.verify_mode = ssl.CERT_NONE
+
+    with urllib.request.urlopen("https://example.com", timeout=3, context=current_context) as response:
+        print("response length: {}".format(len(response.read())))
+
     log_err("Simulating an error")
     log_info("Ending the program")
 
