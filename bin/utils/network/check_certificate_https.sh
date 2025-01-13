@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -o pipefail
+
 url="$1"
 
 if [[ -z "${url}" ]]
@@ -19,6 +21,7 @@ set -e
 
 # --no-keepalive: Disables the use of keepalive messages on the TCP connection
 expiration_date=$(curl \
+    --insecure \
     --connect-timeout 5 \
     --silent \
     --no-keepalive \
