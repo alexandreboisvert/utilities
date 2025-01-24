@@ -18,12 +18,16 @@ items_to_remove=".adobe/
 .cache/midori
 .cache/mpv
 .cache/qtshadercache-x86_64-little_endian-lp64
+.cache/staticcheck
 .cache/sxiv
 .cache/vlc/art
 .cache/yarn
 .cache/youtube-dl
 .cache/yt-dlp
 .compiz/sessions
+.config/Code/Cache/Cache_Data
+.config/Code/CachedData
+.config/Code/logs
 .config/ghb/EncodeLogs
 .config/transmission/resume
 .config/transmission/torrents
@@ -115,5 +119,8 @@ find ~/.cache/vlc/art -type f -print -delete
 
 echo "GIO trash"
 gio trash --empty
+
+echo "Firefox Data Reporting cleanup"
+find ~/.mozilla/firefox/*/datareporting/archived/ -type f -print -delete
 
 exit 0
