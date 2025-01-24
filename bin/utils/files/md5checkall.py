@@ -49,6 +49,9 @@ def process_md5(path: str):
             for line in md5_file.readlines():
                 # some MD5 files use a *
                 m = re.match(r"([a-fA-F0-9]{32})\s+\*{0,1}(.+)", line)
+                if not m:
+                    print_log("[ FAIL ] can't parse {}".format(path))
+                    break
                 expected_checksum = m.group(1)
                 filename = m.group(2)
                 with open(filename, "rb") as fhandle:
