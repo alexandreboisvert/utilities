@@ -12,5 +12,5 @@ fi
 for input_filename in "$@"
 do
   input_extension="${input_filename##*.}"
-  ffmpeg -i "${input_filename}" -vf 'scale=iw*0.5:ih*0.5' "${input_filename}.SMALL.${input_extension}"
+  nice --adjustment=19 ffmpeg -i "${input_filename}" -vf 'scale=iw*0.5:ih*0.5' "${input_filename}.SMALL.${input_extension}"
 done
