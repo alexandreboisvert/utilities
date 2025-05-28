@@ -106,6 +106,9 @@ go clean -cache
 go clean -testcache
 go clean -modcache
 
+echo "Golang Disable Telemetry"
+go telemetry off
+
 echo "MEGA old logs"
 if [[ -d "${home_prefix}/.local/share/data/Mega Limited/MEGAsync/logs" ]]
 then
