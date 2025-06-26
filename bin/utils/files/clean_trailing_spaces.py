@@ -55,9 +55,9 @@ def print_report(filename: str):
                 # printing later.
                 lines_list.append(str(line_count))
     if len(lines_list) > 0:
-        print("trailing spaces detected in lines: {}".format(", ".join(lines_list)))
+        print("{}: trailing spaces detected in lines: {}".format(filename, ", ".join(lines_list)))
     else:
-        print("no trailing spaces detected")
+        print("{}: no trailing spaces detected".format(filename))
     pass
 
 
