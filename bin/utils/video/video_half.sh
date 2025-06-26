@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -z "$1" ]
+if [[ -z "$1" ]]
 then
   echo "Create a new video file half the resolution (W x H)"
   echo "e.g."
@@ -12,5 +12,8 @@ fi
 for input_filename in "$@"
 do
   input_extension="${input_filename##*.}"
+  echo "$(date || true) processing file ${input_filename}"
   nice --adjustment=19 ffmpeg -loglevel warning -i "${input_filename}" -vf 'scale=iw*0.5:ih*0.5' "${input_filename}.SMALL.${input_extension}"
+  ret_code="$?"
+  echo "$(date || true) processing file ${input_filename} - done (code ${ret_code})"
 done
