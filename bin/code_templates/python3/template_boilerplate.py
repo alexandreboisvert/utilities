@@ -21,6 +21,9 @@ import syslog
 import ssl
 import urllib.request
 
+# Executing external commands
+import subprocess
+
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
 
@@ -94,7 +97,44 @@ def main():
         print("response length: {}".format(len(response.read())))
 
     log_err("Simulating an error")
+
+    success, stdout, stderr = run_command("date")
+
+    if success:
+        log_info("the command succeeded")
+    else:
+        log_info("the command failed")
+
     log_info("Ending the program")
+
+
+def run_command(cmd: str, timeout=5) -> tuple[bool, str, str]:
+    """
+    Runs the given command with the optional timeout.
+    Returns 3 items.
+    - Success: True/False
+    - STDOUT text
+    - STDERR text
+    """
+
+    status = False
+
+    try:
+
+        cmd_output = subprocess.run(
+            cmd,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=timeout)
+
+    except Exception as e:
+        return status, "failure to execute command", f"{e}"
+
+    if cmd_output.returncode == 0:
+        status = True
+
+    return status, cmd_output.stdout, cmd_output.stderr
 
 
 if __name__ == "__main__":
