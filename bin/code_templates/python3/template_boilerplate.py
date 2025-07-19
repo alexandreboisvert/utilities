@@ -98,7 +98,7 @@ def main():
 
     log_err("Simulating an error")
 
-    success, stdout, stderr = run_command("date")
+    success, stdout, stderr = run_command(["ls", "-l", "file with spaces.txt"])
 
     if success:
         log_info("the command succeeded")
@@ -108,7 +108,7 @@ def main():
     log_info("Ending the program")
 
 
-def run_command(cmd: str, timeout=5) -> tuple[bool, str, str]:
+def run_command(cmd_parts: str, timeout=5) -> tuple[bool, str, str]:
     """
     Runs the given command with the optional timeout.
     Returns 3 items.
@@ -122,8 +122,8 @@ def run_command(cmd: str, timeout=5) -> tuple[bool, str, str]:
     try:
 
         cmd_output = subprocess.run(
-            cmd,
-            shell=True,
+            cmd_parts,
+            shell=False,
             capture_output=True,
             text=True,
             timeout=timeout)
