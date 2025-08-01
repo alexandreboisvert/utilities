@@ -108,7 +108,7 @@ def main():
     log_info("Ending the program")
 
 
-def run_command(cmd_parts: str, timeout=5) -> tuple[bool, str, str]:
+def run_command(cmd_parts: list, timeout=5) -> tuple[bool, str, str]:
     """
     Runs the given command with the optional timeout.
     Returns 3 items.
