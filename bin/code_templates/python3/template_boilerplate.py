@@ -24,6 +24,9 @@ import urllib.request
 # Executing external commands
 import subprocess
 
+# Printing logs with timestamp prefix
+import datetime
+
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
 
@@ -104,6 +107,10 @@ def main():
         log_info("the command succeeded")
     else:
         log_info("the command failed")
+
+    now_date = datetime.datetime.now()
+    now_text = now_date.strftime("%Y-%m-%d %H:%M:%S.%f")
+    print("timestamp now = {}".format(now_text))
 
     log_info("Ending the program")
 
