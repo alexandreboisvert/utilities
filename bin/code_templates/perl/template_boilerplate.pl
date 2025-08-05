@@ -584,6 +584,15 @@ sub main() {
     my $array_length = @animals;
     print "array length with variable: $array_length\n";
     print "array length with scalar: " . scalar(@animals) . "\n";
+
+    print "timestamp\n";
+    my ( $sec, $min, $hour, $mday, $mon, $year ) = (localtime)[ 0 .. 5 ];
+    my $str = sprintf(
+        "%04d-%02d-%02d %02d:%02d:%02d\n",
+        $year + 1900,
+        $mon + 1, $mday, $hour, $min, $sec
+    );
+    print "$str";
 }
 
 main();
