@@ -5,7 +5,6 @@ mediainfo_short.sh in Python3
 """
 
 import re
-import shlex
 import subprocess
 import sys
 
@@ -38,12 +37,13 @@ def main():
 
     infos = []
     for file_path in sys.argv[2:]:
-        cmd = ""
-        cmd += "mediainfo --full "
-        cmd += "{}".format(shlex.quote(file_path))
+        cmd = []
+        cmd.append("mediainfo")
+        cmd.append("--full")
+        cmd.append(file_path)
         ok, mediainfo_text, stderr = run_command(cmd)
         if not ok:
-            print("failure to mediainfo {}".format(file_path))
+            print("failure to run mediainfo {}".format(file_path))
             continue
         file_info, err_msg = parse_mediainfo(mediainfo_text)
         if err_msg != "":
@@ -96,7 +96,7 @@ def mediainfo_available() -> bool:
     # MediaInfo Command line,
     # MediaInfoLib - v23.04
 
-    success_run, stdout, stderr = run_command("mediainfo --version")
+    success_run, stdout, stderr = run_command(["mediainfo", "--version"])
 
     if not success_run:
         print("failure to check if mediainfo is available")
@@ -155,7 +155,7 @@ def parse_mediainfo(mediainfo_output: str) -> tuple[dict, str]:
     return mediainfo, ""
 
 
-def run_command(cmd: str, timeout=5) -> tuple[bool, str, str]:
+def run_command(cmd_parts: list, timeout=5) -> tuple[bool, str, str]:
     """
     Runs the given command with the optional timeout.
     Returns 3 items.
@@ -169,11 +169,11 @@ def run_command(cmd: str, timeout=5) -> tuple[bool, str, str]:
     try:
 
         cmd_output = subprocess.run(
-            cmd,
+            cmd_parts,
             check=True,
             capture_output=True,
             text=True,
-            shell=True,
+            shell=False,
             timeout=timeout)
 
     except Exception as e:
