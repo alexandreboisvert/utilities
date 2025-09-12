@@ -3,8 +3,11 @@
 # general note for bash scripting: use https://www.shellcheck.net/
 
 # useful Bash options
-# set -e: stop on any error
-# set -x: display the command before executing it
+# set -e    : stop on any error
+# set -x    : display the command before executing it
+# set -u    : reading an unset variable is an error
+# set -f    : no globbing, "*.txt" is a file, not a glob
+# set -o pipefail    : an error in a pipeline fails the whole pipeline
 
 ######################################################################
 # Constants and global variables (default values)
