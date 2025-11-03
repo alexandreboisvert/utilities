@@ -246,6 +246,7 @@ If you cannot do great things, do small things in a great way.
 If you don't know where you are going, you will probably end up somewhere else.
 There are only two kinds of programming languages: the ones people complain about and the ones nobody uses. -- Bjarne Stroustrup
 AI Won't Replace Human Workers, But People Who Use It Will Replace Those Who Don't -- Andrew Ng
-Volume is not Truth and Repetition is not Proof."
+Volume is not Truth and Repetition is not Proof
+Growth for the sake of growth is the ideology of the cancer cell. -- Edward Abbey, The Journey Home: Some Words in Defense of the American West"
 
 echo "${quotes}" | shuf -n1
