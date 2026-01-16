@@ -27,6 +27,9 @@ import subprocess
 # Printing logs with timestamp prefix
 import datetime
 
+# Regular Expressions
+import re
+
 # syslog program name (instead of sys.argv[0])
 PROGRAM_NAME = "template_boilerplate_py"
 
@@ -111,6 +114,11 @@ def main():
     now_date = datetime.datetime.now()
     now_text = now_date.strftime("%Y-%m-%d %H:%M:%S.%f")
     print("timestamp now = {}".format(now_text))
+
+    # regex demo
+    m = re.match(r".*ID=([0-9]+), NAME=(.+)", "ID=999, NAME=John")
+    if m:
+        print("regex demo id = {}, name = {}".format(m.group(1), m.group(2)))
 
     log_info("Ending the program")
 
