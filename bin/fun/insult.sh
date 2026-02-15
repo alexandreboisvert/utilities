@@ -32,7 +32,16 @@ I expected nothing, but I'm still disappointed.
 Having you around is like losing three good people.
 You are so far behind you think you're first.
 You are sharp as a marshmallow.
-You're the reason we have warning labels."
+You're the reason we have warning labels.
+Unlike the stomach, the brain does not tell when it's empty.
+Every moment I spend with you is better than the next.
+I was going to challenge you to a battle of wits but I see you are unarmed.
+I could agree with you but then we'd both be wrong.
+See you soon! Not if I see you first.
+He believes the same thing on Wednesday that he did on Monday... no matter what happened on Tuesday.
+I've been called worse by better people.
+Your ratio of words to significance is extremely high.
+Among everybody here, you have the most potential to learn something."
 
 echo "${insults}" | shuf -n1
 
