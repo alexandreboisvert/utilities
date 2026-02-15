@@ -247,6 +247,10 @@ If you don't know where you are going, you will probably end up somewhere else.
 There are only two kinds of programming languages: the ones people complain about and the ones nobody uses. -- Bjarne Stroustrup
 AI Won't Replace Human Workers, But People Who Use It Will Replace Those Who Don't -- Andrew Ng
 Volume is not Truth and Repetition is not Proof
-Growth for the sake of growth is the ideology of the cancer cell. -- Edward Abbey, The Journey Home: Some Words in Defense of the American West"
+Growth for the sake of growth is the ideology of the cancer cell. -- Edward Abbey, The Journey Home: Some Words in Defense of the American West
+No one is immune to social engineering. And it's not just scams and security. Marketing, algorithms and bias framing is all around us. Most people are too fatigued and overwhelmed to critically filter everything.
+Something important to keep in mind is false equivalencies, especially in advertising.
+Cheap is not always economical. Fast is not always efficient. Easy is not always simple. Impressive is not always useful. Likely is not ever guaranteed. Possible is not always ready. Popular is not always good. Newer/bigger/expensive is not always better.
+There's so many times I've had someone intentionally twist their words to affect peoples judgement while covering their own ass."
 
 echo "${quotes}" | shuf -n1
