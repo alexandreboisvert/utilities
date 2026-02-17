@@ -54,6 +54,7 @@ items_to_remove=".adobe/
 .local/share/recently-used.xbel
 .local/share/user-places.xbel
 .local/share/vlc
+.local/state/xpdf
 .macromedia/
 .mtpaint
 .mupdf.history
@@ -72,6 +73,8 @@ items_to_remove=".adobe/
 .xorgxrdp.10.log
 .xorgxrdp.10.log.old
 .xpdf.pages
+.xpdf.session
+.xpdf.session.managed
 .xsession-errors
 .xsession-errors.old"
 
