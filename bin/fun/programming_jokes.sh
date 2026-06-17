@@ -87,6 +87,7 @@ What does pyjokes have in common with Adobe Flash? It gets updated all the time,
 Why does Waldo only wear stripes? Because he doesn't want to be spotted.
 I went to a street where the houses were numbered 8k, 16k, 32k, 64k, 128k, 256k and 512k. It was a trip down Memory Lane.
 !false, (It's funny because it's true)
-['hip', 'hip'] (hip hip array!)"
+['hip', 'hip'] (hip hip array!)
+I'm waiting as fast as I can for Microsoft to fix the outage."
 
 echo "${jokes}" | shuf -n1
