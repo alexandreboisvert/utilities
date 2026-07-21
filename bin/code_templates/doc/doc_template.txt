@@ -1,0 +1,32 @@
+
+# Documentation Template
+
+Demo markdown file for documentation.
+
+## Introduction
+
+## Problem to solve
+
+## Constraints
+
+## Available solutions
+
+## Selected solution
+
+## Rationale for selected solution
+
+## Maintenance and debug
+
+## Caveats and known issues
+
+## Future development and improvements
+
+When in doubt: 
+
+- Who
+- What
+- When
+- Where
+- Why
+- How
+
