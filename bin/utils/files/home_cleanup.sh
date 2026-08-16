@@ -130,4 +130,7 @@ gio trash --empty
 echo "Firefox Data Reporting cleanup"
 find ~/.mozilla/firefox/*/datareporting/archived/ -type f -print -delete
 
+echo "recently-used.xbel multiple old copies"
+find ~/.local/share/ -iname 'recently-used.xbel.*' -type f -print -delete
+
 exit 0
