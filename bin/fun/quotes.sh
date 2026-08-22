@@ -251,6 +251,7 @@ Growth for the sake of growth is the ideology of the cancer cell. -- Edward Abbe
 No one is immune to social engineering. And it's not just scams and security. Marketing, algorithms and bias framing is all around us. Most people are too fatigued and overwhelmed to critically filter everything.
 Something important to keep in mind is false equivalencies, especially in advertising.
 Cheap is not always economical. Fast is not always efficient. Easy is not always simple. Impressive is not always useful. Likely is not ever guaranteed. Possible is not always ready. Popular is not always good. Newer/bigger/expensive is not always better.
-There's so many times I've had someone intentionally twist their words to affect peoples judgement while covering their own ass."
+There's so many times I've had someone intentionally twist their words to affect peoples judgement while covering their own ass.
+Lost time is not wasted."
 
 echo "${quotes}" | shuf -n1
