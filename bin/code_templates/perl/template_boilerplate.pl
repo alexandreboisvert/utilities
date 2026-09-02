@@ -1,600 +1,817 @@
 #!/usr/bin/perl -W -t -T
+#!/usr/bin/perl -W -t
 
-# this is bad code, it is only a template
+######################################################################
+# Perl Template Program.
+# This program contains a lot of comments.
+# Some suggestions are AI generated with LLMs.
+# Some suggestions come from my old scripts.
+######################################################################
 
-# useful commands:
-# validation check
-# perl -c -t -W template_boilerplate.pl
-# formatting
-# perltidy -b template_boilerplate.pl
+######################################################################
+# Program options on the shebang.
+######################################################################
 
-# part of perlstyle: http://perldoc.perl.org/perlstyle.html
+# Documentation from: perldoc perlrun
+# -W   Enables all warnings regardless of "no warnings" or $^W. See
+#      warnings.
+# -t   Like "-T", but taint checks will issue warnings rather than fatal
+#      errors. These warnings can now be controlled normally with no
+#      warnings qw(taint).
+#      Note: This is not a substitute for "-T"! This is meant to be used
+#      *only* as a temporary development aid while securing legacy code:
+#      for real production code and for new secure code written from
+#      scratch, always use the real "-T".
+#      This has no effect if your perl was built without taint support.
+# -T   turns on "taint" so you can test them. Ordinarily these checks are
+#      done only when running setuid or setgid. It's a good idea to turn
+#      them on explicitly for programs that run on behalf of someone else
+#      whom you might not necessarily trust, such as CGI programs or any
+#      internet servers you might write in Perl. See perlsec for details.
+#      For security reasons, this option must be seen by Perl quite early;
+#      usually this means it must appear early on the command line or in
+#      the "#!" line for systems which support that construct.
+
+# Reminder: The taint mechanism can be cumbersome to manage.
+
+######################################################################
+# Useful Commands
+######################################################################
+
+# Consulting the Perl Documentation.
+# $ perldoc perl | less
+# Some distros will need to install the package perl-doc.
+# Using less as a better pager.
+
+# Check the whole script for syntax and other errors.
+# $ perl -w -W -t -T -c template_boilerplate.pl
+# From perldoc perlrun:
+# -c   causes Perl to check the syntax of the program and then exit
+#      without executing it. Actually, it *will* execute any "BEGIN",
+#      "UNITCHECK", or "CHECK" blocks and any "use" statements: these are
+#      considered as occurring outside the execution of your program.
+#      "INIT" and "END" blocks, however, will be skipped.
+#      If the syntax check is successful perl will exit with a status of
+#      zero and report "*yourprogram* syntax OK". On failure perl will
+#      print any detected errors and exit with a non-zero status.
+
+# Review and propose suggestions on the script:
+# $ perlcritic --verbose 11 template_boilerplate.pl
+# The default level is 5 and is OK. Level 1 is way too aggressive.
+# Verbose mode 11 gives lots of details.
+# The program perlcritic package is usually available in the repos.
+
+# Format the script file.
+# Using -b to get a backup file (.bak).
+# $ perltidy -b template_boilerplate.pl
+
+# List the Core Perl modules available on the system for a given
+# version.
+# $ corelist -v 'v5.42.0'
+
+######################################################################
+# Uses
+######################################################################
+
+# Part of perlstyle: http://perldoc.perl.org/perlstyle.html
+# Should be part of every program.
+# Used by default on recent Perl versions.
 use strict;
 use warnings;
 
-# When we need to catch signals
-use sigtrap;
+# Indicating that the script text should be UTF-8 compliant.
+use utf8;
 
-# Useful in debug/development. Severe performance impact.
+# Require a "modern" Perl installation.
+# Adjust depending on what is installed on the system.
+use v5.38;
+
+# English names for most common variables in Perl.
+# Makes it easier to understand the code.
+# See the command "perldoc perlvar"
+use English;
+
+# Get a detailled error message on script error.
+# The message contains explanations and links to reference material.
+# Useful in debug/development but, causes a severe performance impact.
 use diagnostics;
 
-# Arguments parsing
-use Getopt::Long;
+# When we need to catch signals (SIGUSR, etc.)
+# use sigtrap;
 
-# sub basic_vars() {
-#     print "=== BASIC VARS ===\n";
-#     print "this is a script\n";
-#     my $scalar_var1 = "string var";
-#     my $scalar_var2 = 3.14159;
-#     my $scalar_var3 = 2 * $scalar_var2;
-#     print "value of Pi = $scalar_var2\n";
-#     print "value of Tau = $scalar_var3\n";
-#     print "value of var1 = $scalar_var1\n";
-#     my $name = "Bobby Tables";
-#     print "the name is $name\n";
-#     print 'the name is not $name\n';
-#     print "\n";
-#     my $name_suffix = " Jr";
-#     my $full_name   = $name . $name_suffix;
-#     print "Full name = $full_name\n";
-#     my $original_text = "This is a sentence. Here is another one.";
-#     print "Original var = $original_text\n";
-#     my $original_text_length = length($original_text);
-#     print "Length = $original_text_length\n";
-#     my $uc_text = uc($original_text);
-#     my $lc_text = lc($original_text);
-#     print "Uppercase text = $uc_text\n";
-#     print "Lowercase text = $lc_text\n";
-# }
-#
-# sub flow_control() {
-#     print "=== FLOW CONTROL ===\n";
-#     my $control_if = 1;
-#     if ( $control_if >= 1 and "bob" eq "bob" ) {
-#         print "greater or equal to 1\n";
-#     }
-#     else {
-#         print "not greater or equal to 1\n";
-#     }
-#     my $counter = 0;
-#     while ( $counter < 5 ) {
-#         print "while loop $counter\n";
-#         $counter++;
-#     }
-#     for ( $counter = 0 ; $counter < 5 ; $counter = $counter + 1 ) {
-#         print "for loop $counter\n";
-#     }
-#     for $counter (0 .. 4) {
-#         print "for loop $counter\n";
-#     }
+# Command line options, usually this module is part of Perl Core.
+use Getopt::Long qw(GetOptions);
 
-#     $counter = 0;
-#     while ( $counter < 5 ) {
-#         print "while loop abort at 3: $counter\n";
-#         last if ( $counter == 3 );
-#         $counter++;
-#     }
-# }
-#
-# sub basic_arrays() {
-#     print "=== BASIC ARRAYS ===\n";
-#     my @array1 = ( "one", "two", "three", "four" );
-#     print "array1 = @array1\n";
-#     print "array1[0] = $array1[0]\n";
-#     print "last index of array1: $#array1\n";
-#     my $array_index = 0;
-#     for ( $array_index = 0 ; $array_index <= $#array1 ; $array_index++ ) {
-#         print "array item = $array1[$array_index]\n";
-#     }
-#
-#     # alternative syntax for array definition
-#     my @array2 = qw(one two three four);
-#     print "array2 = @array2\n";
-#     foreach my $array_item (@array1) {
-#         print "array item: $array_item\n";
-#     }
-#
-#  # careful: processing an array item is done by reference, changes are permament
-# }
-#
-# sub command_line_arguments() {
-#     print "=== COMMAND LINE ARGUMENTS ===\n";
-#     print "Processing command line arguments\n";
-#
-#     # default values:
-#     my $config_file_name   = "template_boilerplate.json";
-#     my $verbose_mode       = 0;
-#     my $argument_int_value = 0;
-#     my $getoptresult       = GetOptions(
-#         "configfile=s" => \$config_file_name,
-#         "verbose"      => \$verbose_mode,
-#         "number=i"     => \$argument_int_value,
-#     );
-#
-#     # or die("Error in command line arguments\n");
-#     if ($getoptresult) {
-#         print "Getopt used properly\n";
-#     }
-#     else {
-#         print "Getopt failed\n";
-#     }
-#
-#     #print "getopt result: $getoptresult\n";
-#     print "config_file_name: $config_file_name\n";
-#     print "verbose_mode: $verbose_mode\n";
-#     print "argument number: $argument_int_value\n";
-# }
-#
-# sub stdin_reading() {
-#
-#     # reading stdin with scalars ($) and arrays (@)
-#     print "reading one line from STDIN:\n";
-#     my $current_line = <STDIN>;
-#     print "data read from STDIN:\n";
-#     print "$current_line\n";
-#
-#     print "reading multiple lines from STDIN (ends with EOF or CTRL + D):\n";
-#     my @current_lines = <STDIN>;
-#     print "data read from STDIN:\n";
-#     print "current_lines:\n@current_lines\n";
-#     foreach my $line_read (@current_lines) {
-#
-#         # no trim function in perl, using a regex (like sed)
-#         $line_read =~ s/^\s+|\s+$//g;
-#         print "line: $line_read\n";
-#     }
-#
-#     # compact code
-#     print "Compact code: reading multiple lines from STDIN:";
-#     foreach (<STDIN>) {
-#
-#         # trimming the line
-#         $_ =~ s/^\s+|\s+$//g;
-#         print "line read = $_\n";
-#     }
-# }
-#
-# sub split_strings() {
-#     print "=== SPLIT STRINGS ===\n";
-#     my $s1 = "The quick brown fox jumps over the lazy dog.";
-#     my $s2 = "Lorem ipsum, dir solor amet.";
-#     print "the strings:\n";
-#     print "s1: $s1\n";
-#     print "s2: $s2\n";
-#     print "split on null '' string = one char at the time:\n";
-#
-#     # the split argument is in fact a regex //
-#     my @items = split( //, $s1 );
-#     foreach my $item (@items) {
-#         print "item: $item\n";
-#     }
-#     print "split on space ' ' string = one word at the time:\n";
-#     @items = split( / /, $s1 );
-#     foreach my $item (@items) {
-#         print "item: $item\n";
-#     }
-#     print "split on comma ',' string = half the sentence:\n";
-#     @items = split( /,/, $s2 );
-#     foreach my $item (@items) {
-#         print "item: $item\n";
-#     }
-# }
-#
-# sub join_strings() {
-#     print "=== JOIN STRINGS ===\n";
-#     print "a list of numbers:\n";
-#     my $new_list = join( ",", ( 1 .. 10 ) );
-#     print "$new_list\n";
-#     my @array1 = split( / /, "The quick brown fox jumps over the lazy dog" );
-#     print "list of words\n";
-#     $new_list = join( "*", @array1 );
-#     print "$new_list\n";
-# }
-#
-# sub sort_arrays() {
-#     print "=== SORT ARRAYS ===\n";
-#     print "input array:\n";
-#     my @array1 = ( 22, 1, 17, 8 );
-#     print "@array1\n";
-#     my @sorted_array1 = sort @array1;
-#     print "sorted array (LEXICOGRAPHICAL):\n";
-#     print "@sorted_array1\n";
-#     @sorted_array1 = sort { $a <=> $b; } @array1;
-#     print "sorted array (NUMERICAL):\n";
-#     print "@sorted_array1\n";
-#     print "reversed array (LEXICOGRAPHICAL):\n";
-#     @sorted_array1 = reverse @array1;
-#     print "@sorted_array1\n";
-#     print "reversed array (NUMERICAL):\n";
-#
-#     # reverse does not support <=>
-#     @sorted_array1 = reverse sort { $a <=> $b; } @array1;
-#     print "@sorted_array1\n";
-# }
-#
-# sub reading_files() {
-#     print "=== READING FILES ===\n";
-#     my $file_name = "./template_boilerplate.json";
-#
-#     print "reading only one line at a time\n";
-#     if ( open( INPUT_FILEH, $file_name ) ) {
-#         print "Opened the file $file_name successfully\n";
-#         my $current_line = "";
-#         while ( defined( $a = <INPUT_FILEH> ) ) {
-#
-#             #$a =~ s/^\s+|\s+$//g ;
-#             # chomp removes the newline char, but it is not trim
-#             chomp $a;
-#             print "line read: $a\n";
-#         }
-#         close(INPUT_FILEH);
-#     }
-#     else {
-#         print "Failed to open the file $file_name\n";
-#     }
-#
-#     print "read all the lines in bulk (watch the memory)\n";
-#     my @all_lines;
-#     if ( open( INPUT_FILEH, $file_name ) ) {
-#         @all_lines = <INPUT_FILEH>;
-#         close(INPUT_FILEH);
-#     }
-#     else {
-#         print "Failed to open the file $file_name\n";
-#     }
-#     foreach my $current_line (@all_lines) {
-#
-#         #$current_line =~ s/^\s+|\s+$//g ;
-#         chomp $current_line;
-#         print "line read: $current_line\n";
-#     }
-# }
-#
-# sub writing_files() {
-#     print "=== WRITING FILES ===\n";
-#     my $output_filename = "./outfile1.txt";
-#     my @data_list       = qw(5 1 4 2 8 0 5 8 1 1);
-#
-#     print "overwrite\n";
-#     if ( open( OUTPUT_FH, ">$output_filename" ) ) {
-#         print OUTPUT_FH "@data_list\n";
-#         close(OUTPUT_FH);
-#     }
-#     else {
-#         print "Failed to open the file $output_filename\n";
-#     }
-#     print "append\n";
-#     if ( open( OUTPUT_FH, ">>$output_filename" ) ) {
-#         print OUTPUT_FH "append\n";
-#         close(OUTPUT_FH);
-#     }
-#     else {
-#         print "Failed to open the file $output_filename\n";
-#     }
-# }
-#
-# sub stdin_stdout_stderr() {
-#     print "=== STDIN STDOUT STDERR ===\n";
-#     print STDOUT "this is stdout\n";
-#     print STDERR "this is stderr\n";
-# }
-#
-# sub binary_mode() {
-#
-#     # mostly for non-unix systems.
-#     print "=== BINARY FILES ===\n";
-#     my $output_filename = "img.gif";
-#     if ( open( OUTPUT_FH, ">$output_filename" ) ) {
-#         binmode(OUTPUT_FH);
-#         print OUTPUT_FH "GIF87a\056\001\045\015\000";
-#         close(OUTPUT_FH);
-#     }
-#     else {
-#         print "Failed to open the file $output_filename\n";
-#     }
-# }
-#
-# sub file_information() {
-#     print "=== FILE INFORMATION ===\n";
-#     my $file_name = "./template_boilerplate.json";
-#     print "Check the file: $file_name\n";
-#
-#     # there a more file operators, see "perldoc perlfunc"
-#     my @checks = (
-#         "-r is readable",
-#         "-w is writable",
-#         "-e does exist",
-#         "-z is empty",
-#         "-s size in bytes",
-#         "-f is a regular file",
-#         "-d is a directory",
-#         "-T is a text file",
-#         "-B is a binary file",
-#         "-M age in days",
-#     );
-#     my @results = (
-#         -r $file_name,
-#         -w $file_name,
-#         -e $file_name,
-#         -z $file_name,
-#         -s $file_name,
-#         -f $file_name,
-#         -d $file_name,
-#         -T $file_name,
-#         -B $file_name,
-#         -M $file_name,
-#     );
-#     for my $array_index ( 0 .. $#results ) {
-#         print "Check: $checks[$array_index] = $results[$array_index].\n";
-#     }
-# }
-#
-# sub pattern_matching() {
-#     print "=== PATTERN MATCHING ===\n";
-#     my @input_list       = qw(foo bar lorem ipsum);
-#     my $pattern_to_match = "m";
-#     print "Inputs: @input_list\n";
-#     print "Pattern: $pattern_to_match\n";
-#     for my $current_item (@input_list) {
-#         if ( "$current_item" =~ /$pattern_to_match/ ) {
-#             print "Matched: $current_item\n";
-#         }
-#     }
-#     print "Substitution in place in array\n";
-#     for my $current_item (@input_list) {
-#         if ( $current_item =~ s/sum/SUM/ ) {
-#             print "Matched: $current_item\n";
-#         }
-#     }
-#     print "grep\n";
-#     print "Inputs: @input_list\n";
-#     my @o_words = grep /o/, @input_list;
-#     print "o words: @o_words\n";
-#     print "long words:\n";
-#     my @l_words = grep length($_) > 3, @input_list;
-#     print "long words: @l_words\n";
-# }
-#
-# sub basic_hashes() {
-#     print "=== HASHES ===\n";
-#     my %Movies = (
-#         'The Shining' => 'Stanley Kubrick',
-#         'The Goonies' => 'Steven Spieldberg',
-#         'Avatar'      => 'James Cameron'
-#     );
-#     if ( exists $Movies{'Avatar'} ) {
-#         print "One Director = $Movies{'Avatar'}\n";
-#     }
-#     foreach my $movie_title ( keys %Movies ) {
-#         print "Movie = $movie_title, Director = $Movies{$movie_title}\n";
-#     }
-#     foreach my $movie_director ( values %Movies ) {
-#         print "Director = $movie_director\n";
-#     }
+# Using the already available POD documentation for command line help.
+# This module is usually part of Perl Core.
+use Pod::Usage qw(pod2usage);
 
-# }
-#
-# #basic_vars();
-#
-# #flow_control();
-#
-# #basic_arrays();
-#
-# #command_line_arguments();
-#
-# #stdin_reading();
-#
-# #split_strings();
-#
-# #join_strings();
-#
-# #sort_arrays();
-#
-# #reading_files();
-#
-# #writing_files();
-#
-# #stdin_stdout_stderr();
-#
-# #binary_mode();
-#
-# #file_information();
-#
-# #pattern_matching();
-#
-# #basic_hashes();
-#
-# # functions don't have named arguments???
-# sub mini1 {
-#     print "This is mini1\n";
-#     print "Arguments list:\n";
-#     for my $argument (@_) {
-#         print "Argument: $argument\n";
-#     }
-#     print("End of arguments list\n");
-# }
-#
-# #mini1("a", "b");
-#
-# # if we do not want arguments: ()
-# sub mini2() {
-#     print "mini2 does not accept arguments\n";
-# }
-#
-# #mini2();
-#
-# # returning something
-# sub mini3 {
-#     print "mini3 will return something\n";
-#     my $running_total = 0;
-#     for my $argument (@_) {
-#         $running_total = $running_total + $argument;
-#     }
-#     print "mini3 returns: $running_total\n";
-#     return $running_total;
-# }
-#
-# #print "result of mini3:", mini3(1,2,3), "\n";
+# This module is usually part of Perl Core.
+use JSON::PP;
+
+# Useful for debugging and printing.
+# This module is usually part of Perl Core.
+use Data::Dumper;
 
 ######################################################################
-
-## https://stackoverflow.com/questions/4552197/insecure-envenv-while-running-with-t-switch#4552306
-#delete @ENV{ 'PATH', 'IFS', 'CDPATH', 'ENV', 'BASH_ENV' };
-#print("executing an external command\n");
-#my $output = `ls -la /unknown_dir_name 2>&1`;
-#print("output =\n");
-#print($output);
-#exit(0);
-
+# Constants
 ######################################################################
 
-# Arguments default values
-my $config_file = "template_boilerplate.json";
-my $int_value   = 0;
-my $stdin_mode  = 0;
+# Attempting to alter this value will fail at compile time.
+use constant PI => 3.14159;
 
-sub process_arguments() {
-    my $arg_config_file = undef;
-    my $arg_int_value   = undef;
-    my $arg_stdin_mode  = 0;
-    my $arg_help_mode   = 0;
+######################################################################
+# POD
+######################################################################
 
-    my $processed_cmd_line_result = GetOptions(
-        "config-file=s"   => \$arg_config_file,
-        "integer-value=i" => \$arg_int_value,
-        "stdin"           => \$arg_stdin_mode,
-        "help"            => \$arg_help_mode,
+=head1 NAME
+
+Template/Boilerplate Perl 5 Script.
+
+=head1 SYNOPSIS
+
+  perl template_boilerplate.pl [options] [positional ...]
+
+  perl template_boilerplate.pl --help
+  perl template_boilerplate.pl --man
+  perl template_boilerplate.pl --name "ABC" --count 3 --verbose
+  perl template_boilerplate.pl --demo refs
+
+=head1 DESCRIPTION
+
+This script is a template for Perl.
+
+This script was inspired by Claude and various other LLMs.
+
+This script contains examples of Perl features.
+
+
+Highlights:
+
+=over 4
+
+=item * Best practices: C<strict>, C<warnings>, lexical variables, clear structure.
+
+=item * Modern syntax: subroutine signatures, C<state>, C<//>, dispatch table usage.
+
+=item * CLI parsing with C<Getopt::Long> and documentation with C<Pod::Usage>.
+
+=item * Core data structures and references: scalars, arrays, hashes, refs, nested data.
+
+=item * Inline comments and POD for maintainability.
+
+=back
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--name STRING>
+
+Name used in example output. Default: C<Perl Template Program>.
+
+=item B<--count INT>
+
+Positive integer used by loop examples. Default: C<2>.
+
+=item B<--verbose> / B<--no-verbose>
+
+Enable/disable extra explanatory output.
+
+=item B<--demo STRING>
+
+Choose one tutorial section: C<all>, C<scalars>, C<arrays>, C<hashes>,
+C<refs>, C<flow>, C<subs>, C<exec>, C<fileinfo>, C<stdin>, C<data>,
+C<files>, C<bin>, C<json>.
+
+=item B<--help>, B<-h>
+
+Print short usage.
+
+=item B<--man>
+
+Print full manual (this POD).
+
+=back
+
+=head1 DATA STRUCTURE REMINDER
+
+Perl sigils:
+
+=over 4
+
+=item * C<$scalar> - single value (number, string, reference, object, etc.)
+
+=item * C<@array> - ordered list
+
+=item * C<%hash> - key/value map
+
+=back
+
+References:
+
+=over 4
+
+=item * C<$arr_ref = [ ... ]> for array references
+
+=item * C<$hash_ref = { ... }> for hash references
+
+=item * Dereference with C<< $arr_ref->[0] >> and C<< $hash_ref->{key} >>
+
+=back
+
+=head1 USEFUL WEB REFERENCES
+
+=over 4
+
+=item * Perl documentation index: L<https://perldoc.perl.org/>
+
+=item * perlfaq: L<https://perldoc.perl.org/perlfaq>
+
+=item * Getopt::Long docs: L<https://perldoc.perl.org/Getopt::Long>
+
+=item * Perl Maven tutorials: L<https://perlmaven.com/>
+
+=item * Modern Perl book (free online): L<http://modernperlbooks.com/books/modern_perl_2016/index.html>
+
+=item * CPAN module search: L<https://metacpan.org/>
+
+=item * https://perl.petamem.com/docs/eng/index.html
+
+=back
+
+=head1 STYLE NOTES
+
+Recommended defaults for most scripts:
+
+=over 4
+
+=item * Start with C<use v5.36; use strict; use warnings;>
+
+=item * Keep subroutines focused and small.
+
+=item * Validate input early and fail with clear messages.
+
+=item * Prefer lexical variables and avoid package globals.
+
+=item * Sort hash keys in output where deterministic logs matter.
+
+=item * Write POD early so C<--help> and C<--man> stay useful.
+
+=back
+
+=head1 AUTHOR
+
+Generated as a practical tutorial script for Perl 5 learners.
+
+=head1 LICENSE
+
+This example is provided as-is, with no warranty.
+
+=cut
+
+######################################################################
+# Subroutines
+######################################################################
+
+sub main() {
+
+    # Keeping all the command line options in a hash for easy access.
+    my %cmd_line_options = (
+        name    => "Perl Template Program",
+        count   => 0,
+        verbose => 0,
+        demo    => "",
+        help    => 0,
+        man     => 0,
     );
 
-    if ($arg_help_mode) {
-        print_usage();
-        exit 0;
-    }
+    # Passing references to the hash values
+    GetOptions(
 
-    if ( not $processed_cmd_line_result ) {
-        print "Incorrects arguments provided.\n";
-        print_usage();
+        # Replace the string.
+        'name=s' => \$cmd_line_options{name},
+
+        # Replace the int value.
+        'count=i' => \$cmd_line_options{count},
+
+        # Store a boolean value. --verbose, --no-verbose
+        'verbose!' => \$cmd_line_options{verbose},
+
+        # Choose one option for the demo
+        'demo=s' => \$cmd_line_options{demo},
+
+        # Show short help message.
+        'help|h' => \$cmd_line_options{help},
+
+        # Show long help message (show POD).
+        'man' => \$cmd_line_options{man},
+
+        # Return code 2 on invalid arguments.
+    ) or pod2usage(2);
+
+    # Display a short version of the POD with option "help".
+    pod2usage(1) if $cmd_line_options{help};
+
+    # Display a long version of the POD with option "man".
+    pod2usage( -verbose => 2, -exitval => 0 ) if $cmd_line_options{man};
+
+    # Program entrypoint.
+    print "This is main\n";
+
+    print "Selected demo = " . $cmd_line_options{demo} . "\n";
+
+    my $selected_demo = $cmd_line_options{demo};
+    chomp $selected_demo;
+
+    if ( $cmd_line_options{demo} =~ m/^$/ ) {
+        print "The selected demo is not valid. See option --help.\n";
         exit 1;
     }
 
-    if ( not defined($arg_int_value) ) {
-        print "Int value not defined, using default $int_value instead\n";
-    }
-    else {
-        $int_value = $arg_int_value;
-    }
+    my @list = qw(all scalars arrays hashes refs flow subs exec
+      fileinfo stdin data files bin json);
 
-    if ( not defined($arg_config_file) ) {
-        print "Config file not defined, using default $config_file instead\n";
-    }
-    else {
-        $config_file = $arg_config_file;
-    }
+    if ( grep { $ARG =~ $selected_demo } @list ) {
+        print "This is a valid selected value.\n";
 
-    if ( not $arg_stdin_mode ) {
-        print "STDIN mode not defined, using default $stdin_mode instead\n";
-    }
-    $stdin_mode = $arg_stdin_mode;
-}
+        demo_scalars()          if ( $selected_demo eq "scalars" );
+        demo_arrays()           if ( $selected_demo eq "arrays" );
+        demo_hashes()           if ( $selected_demo eq "hashes" );
+        demo_refs()             if ( $selected_demo eq "refs" );
+        demo_flow()             if ( $selected_demo eq "flow" );
+        demo_subs()             if ( $selected_demo eq "subs" );
+        demo_exec()             if ( $selected_demo eq "exec" );
+        demo_fileinfo()         if ( $selected_demo eq "fileinfo" );
+        demo_stdin()            if ( $selected_demo eq "stdin" );
+        demo_data()             if ( $selected_demo eq "data" );
+        demo_read_write_files() if ( $selected_demo eq "files" );
+        demo_bin_mode()         if ( $selected_demo eq "bin" );
+        demo_json()             if ( $selected_demo eq "json" );
 
-sub print_usage() {
-    print "Template Boilerplate script\n";
-    print "--integer-value I : An integer I of your choice\n";
-    print "--config-file   C : The path C to the config file to use\n";
-    print "--stdin           : Use STDIN as input\n";
-    print "--help            : Print this help message\n";
-}
-
-sub process_json_file {
-
-    my $json_filename = $_[0];
-    my $json_text     = "";
-    my @json_lines;
-
-    print "process json filename = $json_filename\n";
-
-    if ( open( my $json_filehandler, '<', $json_filename ) ) {
-        @json_lines = <$json_filehandler>;
-        close($json_filehandler);
-
-        foreach my $current_line (@json_lines) {
-            chomp $current_line;
-            $json_text = $json_text . $current_line;
+        if ( $selected_demo eq "all" ) {
+            demo_scalars();
+            demo_arrays();
+            demo_hashes();
+            demo_refs();
+            demo_flow();
+            demo_subs();
+            demo_exec();
+            demo_fileinfo();
+            demo_stdin();
+            demo_data();
+            demo_read_write_files();
+            demo_bin_mode();
+            demo_json();
         }
+    }
+    else {
+        print "This is not a valid list item. See option --help.\n";
+    }
 
-        print "JSON file content:\n$json_text\n";
+    print "Demo program end.\n";
 
-        use JSON::PP;
+}
 
-        my $ref_of_hash = {
-            name   => "bob",
-            age    => undef,
-            fruits => [ "apple", "banana" ]
-        };
+sub demo_scalars() {
+    print "demo_scalars: start\n";
 
-        my %hash2 = (
-            name   => "bob2",
-            age    => undef,
-            fruits => [ "apple2", "banana2" ]
+    my $integer = 42;
+    my $float   = 3.14159;
+    my $string  = "This is a string";
 
+    print "demo_scalars: Scalars don't need strong typing.\n";
+    print "demo_scalars: Integer value   = $integer\n";
+    print "demo_scalars: Float value     = $float\n";
+    print "demo_scalars: String value    = $string\n";
+
+    print "demo_scalars: Can't print a constant with dollar sign,";
+    print "demo_scalars: using a string concatenation instead.\n";
+    print "demo_scalars: The value of PI = " . PI . "\n";
+
+    print "demo_scalars: String operations\n";
+    print "demo_scalars: Split on words with -*-\n";
+    my @tokens = split( /\s+/, $string );
+    print "demo_scalars: " . join( "-*-", @tokens ) . "\n";
+    print "demo_scalars: Split on chars with -*-\n";
+    @tokens = split( //, $string );
+    print "demo_scalars: " . join( "-*-", @tokens ) . "\n";
+
+    print "demo_scalars: end\n";
+}
+
+sub demo_arrays() {
+    print "demo_arrays: start\n";
+
+    my @items_list = qw(e f a b c d);
+    print "demo_arrays: List = @items_list\n";
+
+    print "demo_arrays: Adding an item at the end: push\n";
+    push @items_list, "g";
+    print "demo_arrays: List = @items_list\n";
+
+    print "demo_arrays: Removing an item at the end: pop\n";
+    my $item = pop @items_list;
+    print "demo_arrays: List = @items_list\n";
+
+    print "demo_arrays: Removing an item at the start: shift\n";
+    $item = shift @items_list;
+    print "demo_arrays: List = @items_list\n";
+
+    print "demo_arrays: Adding an item at the start: unshift\n";
+    unshift @items_list, $item;
+    print "demo_arrays: List = @items_list\n";
+
+    print "demo_arrays: Printing list with a separator: join\n";
+    print "demo_arrays: List = " . join( ", ", @items_list ) . "\n";
+
+    print "demo_arrays: Using 'map' to apply a function to each item:\n";
+    my @items_list_upper = map { uc $ARG } @items_list;
+    print "demo_arrays: List      = @items_list\n";
+    print "demo_arrays: List (uc) = @items_list_upper\n";
+
+    print "demo_arrays: Using 'grep' to select items\n";
+    my @items_with_c = grep { /c/i } @items_list;
+    print "demo_arrays: List     = @items_list\n";
+    print "demo_arrays: List (c) = @items_with_c\n";
+
+    print "demo_arrays: Sorting a list with 'sort'\n";
+    my @items_list_sorted = sort @items_list;
+    print "demo_arrays: List          = @items_list\n";
+    print "demo_arrays: List (sorted) = @items_list_sorted\n";
+
+    print "demo_arrays: lexicographical sort vs numerical sort\n";
+    my @list = ( "22", "1", "17", "8" );
+    print "demo_arrays: unsorted = @list\n";
+    my @list_sorted = sort @list;
+    print "demo_arrays: lex = @list_sorted\n";
+    @list_sorted = sort { $a <=> $b } @list;
+    print "demo_arrays: num = @list_sorted\n";
+
+    print "demo_arrays: Array looping, C/C++ style, when needing the index\n";
+    for ( my $array_index = 0 ; $array_index <= $#items_list ; $array_index++ )
+    {
+        print "demo_arrays: array item #$array_index";
+        print " = $items_list[$array_index]\n";
+    }
+
+    print "demo_arrays: Array looping, automatic foreach\n";
+    foreach my $item (@items_list) {
+        print "demo_arrays: sarray item = $item\n";
+    }
+
+    print "demo_arrays: end\n";
+}
+
+sub demo_hashes() {
+    print "demo_hashes: start\n";
+
+    my %user_info = (
+        id     => 1001,
+        name   => "bob",
+        active => 1,
+    );
+
+    print "demo_hashes: Printing a hash can't use %user_info\n";
+
+    # Sorting keys to make sure it is stable
+    for my $k ( sort keys %user_info ) {
+        printf "demo_hashes: %8s ==> %8s\n", $k, $user_info{$k};
+    }
+
+    # Adding a new field is just that
+    $user_info{email} = "bob\@example.com";
+
+    print "demo_hashes: New field added\n";
+    for my $k ( sort keys %user_info ) {
+        printf "demo_hashes: %8s ==> %8s\n", $k, $user_info{$k};
+    }
+
+    print "demo_hashes: Delete a field\n";
+    delete $user_info{email};
+    for my $k ( sort keys %user_info ) {
+        printf "demo_hashes: %8s ==> %8s\n", $k, $user_info{$k};
+    }
+
+    print "demo_hashes: Check if a field is present with 'exists'\n";
+    if ( exists $user_info{email} ) {
+        print "demo_hashes: Field email is still present\n";
+    }
+    else {
+        print "demo_hashes: Field email was deleted.\n";
+    }
+
+    print "demo_hashes: end\n";
+}
+
+sub demo_refs() {
+
+    # Scalar reference
+    my $name     = "Ada";
+    my $name_ref = \$name;
+
+    # Array reference
+    my @colors     = qw(red green blue);
+    my $colors_ref = \@colors;
+
+    # Hash reference
+    my %person = (
+        age  => 30,
+        city => "Paris",
+    );
+    my $person_ref = \%person;
+
+    # Code reference
+    my $greet_ref = sub {
+        my ($who) = @_;
+        return "Hello, $who!";
+    };
+
+    print "demo_refs: Scalar ref: $$name_ref\n";
+    print "demo_refs: Array ref: " . join( ", ", @$colors_ref ) . "\n";
+    print "demo_refs: Hash ref: age=$person_ref->{age}\n";
+    print "demo_refs: Code ref: " . $greet_ref->("world") . "\n";
+}
+
+sub demo_flow() {
+    print "demo_flow: if elsif else\n";
+
+    # given/when can be useful but many teams prefer if/elsif.
+    my @values = ( 3, PI, 4 );
+
+    foreach my $v (@values) {
+        print "demo_flow: value is $v\n";
+        if    ( $v > PI ) { print "demo_flow: value is larger than PI\n"; }
+        elsif ( $v < PI ) { print "demo_flow: value is smaller than PI\n"; }
+        else              { print "demo_flow: value is other\n"; }
+    }
+
+    print "demo_flow: for and while loops\n";
+    for my $i ( 5 .. 8 ) {
+        my $parity = $i % 2 == 0 ? 'even' : 'odd';
+        print "demo_flow: iteration $i is $parity\n";
+    }
+
+    my $i = 0;
+    while ( $i < 3 ) {
+        print "demo_flow: while valule  = $i\n";
+        $i++;
+    }
+
+    my %capitals = (
+        "Canada" => "Ottawa",
+        "USA"    => "Washington D.C.",
+        "Mexico" => "Mexico City",
+    );
+
+    # Looping through the key/value pairs, not ordered.
+    print "demo_flow: Capitals\n";
+    for my ( $key, $value ) (%capitals) {
+        print "demo_flow: $key : $value\n";
+    }
+}
+
+sub demo_subs() {
+    my $num1   = 3;
+    my $num2   = 4;
+    my $result = 0;
+
+    print "demo_subs: num1 = $num1\n";
+    print "demo_subs: num2 = $num2\n";
+
+    $result = demo_subs_named_args( $num1, $num2 );
+    print "demo_subs: demo_subs_named_args  = $result\n";
+
+    $result = 0;
+    $result = demo_subs_unamed_args( $num1, $num2 );
+    print "demo_subs: demo_subs_unamed_args = $result\n";
+
+    # This will compile but fail at run time.
+    # $result = 0;
+    # $result = demo_subs_no_args( $num1, $num2 );
+    # print "demo_subs: demo_subs_no_args = $result\n";
+
+    print "demo_subs: state function\n";
+    demo_subs_state_var();
+
+    print "demo_subs: state function second call\n";
+    demo_subs_state_var();
+}
+
+sub demo_subs_named_args ( $value1, $value2 ) {
+    return $value1 + $value2;
+}
+
+sub demo_subs_unamed_args {
+    my $sum = $ARG[0] + $ARG[1];
+    return $sum;
+}
+
+sub demo_subs_no_args () {
+
+    # Empty parenthesis to make sure no arguments will
+    # be used.
+    my $sum = $ARG[0] + $ARG[1];
+    return $sum;
+}
+
+sub demo_subs_state_var () {
+
+    # State variables
+    # perldoc -f state
+    state $count = 0;
+
+    print "demo_subs: demo_subs_state_var before iteration = $count\n";
+    $count++;
+    print "demo_subs: demo_subs_state_var after iteration = $count\n";
+}
+
+sub demo_exec() {
+
+    # Using tainting mechanism needs some environment cleanup
+    # before running commands.
+    # https://stackoverflow.com/questions/4552197/
+    # insecure-envenv-while-running-with-t-switch#4552306
+    delete @ENV{ 'PATH', 'IFS', 'CDPATH', 'ENV', 'BASH_ENV' };
+
+    print("demo_exec: executing an external command.\n");
+    my @combined_output_lines = `ls -l /tmp 2>&1`;
+
+    print("demo_exec: command output:\n");
+    foreach my $line (@combined_output_lines) {
+
+        # Removing the trailing newline character with chomp.
+        chomp $line;
+        print("demo_exec: $line\n");
+    }
+}
+
+sub demo_fileinfo() {
+    my @path_list = qw(/tmp /etc/os-release);
+
+    foreach my $path (@path_list) {
+        print "demo_fileinfo: Checking path: $path\n";
+
+        # This is not a complete list, see "perldoc perlfunc" for more.
+        my %results = (
+            "-r is readable         " => -r $path,
+            "-w is writable         " => -w $path,
+            "-e does exist          " => -e $path,
+            "-z is empty            " => -z $path,
+
+            # "Size: " in stat command
+            "-s size in bytes       " => -s $path,
+            "-f is a regular file   " => -f $path,
+            "-d is a directory      " => -d $path,
+
+            # Text/Binary = guesstimation
+            "-T is a text file      " => -T $path,
+            "-B is a binary file    " => -B $path,
+
+            # "Change: " in stat command is not the same as Modify
+            "-C last change in days " => -C $path,
         );
 
-        my $hash_as_json  = encode_json $ref_of_hash;
-        my $hash_as_json2 = encode_json { %hash2 };
+        foreach my $k ( sort keys %results ) {
+            print "demo_fileinfo: $k : " . $results{$k} . "\n";
+        }
+    }
+}
 
-        print "hash_as_json: $hash_as_json\n";
-        print "hash_as_json2: $hash_as_json2\n";
+sub demo_stdin() {
+    print "demo_stdin: reading stdin line by line.\n";
+    print "demo_stdin: CTRL + D to stop.\n";
 
-        my $json_object_ref = decode_json $json_text;
-        use Data::Dumper;
-        print Dumper $json_object_ref;
-        print "from config file, title = $$json_object_ref{'title'}\n";
+    # STDIN, STDOUT and STDERR are already open at program start.
+    foreach (<STDIN>) {
+
+        # trimming the line (both ends)
+        $ARG =~ s/^\s+|\s+$//g;
+        print "demo_stdin: line read = $ARG\n";
+        print STDERR "demo_stdin: stderr line read = $ARG\n";
+    }
+}
+
+sub demo_data() {
+    print "demo_data: reading the DATA section ";
+    print "at the end of the file\n";
+
+    # DATA is a file handle open at the start of the program.
+    foreach (<DATA>) {
+
+        # chomp-ing for a better print experience
+        chomp $ARG;
+        print "demo_data: data line = $ARG\n";
+    }
+}
+
+sub demo_read_write_files() {
+    delete @ENV{ 'PATH', 'IFS', 'CDPATH', 'ENV', 'BASH_ENV' };
+    my $temp_path = `mktemp`;
+
+    if ( $OS_ERROR != 0 ) {
+        print "demo_read_write_files: creation failed: $OS_ERROR\n";
+        return;
+    }
+
+    # Helping with tainting: see perldoc perlsec
+    if ( $temp_path =~ /^(\S+)$/ ) {
+        $temp_path = $1;
+    }
+
+    print "demo_read_write_files: temp path = $temp_path\n";
+
+    print "demo_read_write_files: open file\n";
+
+    # use '>>' to append to a file
+    if ( open( my $write_file_handle, '>', $temp_path ) ) {
+
+        print $write_file_handle "First line in temp file\n";
+        print $write_file_handle "Second line in temp file\n";
+        print $write_file_handle "Third line in temp file\n";
+
+        print "demo_read_write_files: closing file\n";
+        close($write_file_handle);
+        print "demo_read_write_files: file closed\n";
+
+        if ( open( my $read_file_handle, '<', $temp_path ) ) {
+
+            while ( defined( my $line = <$read_file_handle> ) ) {
+                $line =~ s/^\s+//;
+                $line =~ s/\s+$//;
+                print "demo_read_write_files: reading line = $line\n";
+            }
+
+            print "demo_read_write_files: closing file\n";
+            close($write_file_handle);
+            print "demo_read_write_files: file closed\n";
+        }
+        else {
+            print
+              "demo_read_write_files: failure to open for reading $OS_ERROR\n";
+        }
     }
     else {
-        print "Failed to open the file $json_filename\n";
+        print "demo_read_write_files: failure to open for writing $OS_ERROR\n";
+    }
+
+    print "demo_read_write_files: delete temp path = $temp_path\n";
+    unlink $temp_path;
+    print "demo_read_write_files: delete done\n";
+}
+
+sub demo_bin_mode() {
+    print "demo_bin_mode: creating a small GIF in /tmp/output.gif\n";
+
+    if ( open( my $output_fh, ">", "/tmp/output.gif" ) ) {
+
+        # binmode is mainly used for non-unix systems
+        binmode($output_fh);
+
+        # creating a 1 X 1 pixel GIF image
+        print $output_fh "\107\111\106\070\071\141";
+        print $output_fh "\001\000\001\000";
+        print $output_fh "\200\000\000";
+        print $output_fh "\000\000\000";
+        print $output_fh "\377\377\377";
+        print $output_fh "\054\000\000\000\000\001\000\001\000\000";
+        print $output_fh "\002\002\104\001\000";
+        print $output_fh "\073";
+
+        close($output_fh);
+    }
+    else {
+        print "demo_bin_mode: failure to open in write mode\n";
     }
 }
 
-# https://stackoverflow.com/questions/19234209/perl-subroutine-arguments#19234780
-sub args_testing {
-    my ( $scalar_value, @array_value ) = @_;
-
-    print "scalar value = $scalar_value\n";
-
-    foreach my $item (@array_value) {
-        print "item =  $item\n";
-    }
-}
-
-sub main() {
-    process_arguments();
-    print "Template Boilerplate Script\n";
-    print "Config file: $config_file\n";
-    print "Int value: $int_value\n";
-    print "STDIN mode: $stdin_mode\n";
-    process_json_file($config_file);
-
-    my $age       = 99;
-    my @locations = ( "earth", "moon", "mars" );
-
-    args_testing( $age, @locations );
-
-    my @animals = ( "camel", "dog", "cat" );
-    print "array animals = @animals\n";
-    my $array_length = @animals;
-    print "array length with variable: $array_length\n";
-    print "array length with scalar: " . scalar(@animals) . "\n";
-
-    print "timestamp\n";
-    my ( $sec, $min, $hour, $mday, $mon, $year ) = (localtime)[ 0 .. 5 ];
-    my $str = sprintf(
-        "%04d-%02d-%02d %02d:%02d:%02d\n",
-        $year + 1900,
-        $mon + 1, $mday, $hour, $min, $sec
+sub demo_json () {
+    my %user_info = (
+        name   => "bob",
+        age    => undef,
+        fruits => [ "apple", "banana" ]
     );
-    print "$str";
+
+    my $user_info_text = encode_json { %user_info };
+
+    print "demo_json: user info\n";
+    print "demo_json: as hash = ";
+    print Dumper %user_info;
+    print "demo_json: as JSON string = $user_info_text\n";
+
+    my $ref_decoded =
+      decode_json '{"age":null,"name":"bob","fruits":["apple","banana"]}';
+
+    print "demo_json: decoded (dumper) = ";
+
+    print Dumper $ref_decoded;
 }
 
 main();
 
-exit 0;
+__END__
+This it the first line of the DATA section.
+This is the second line.
+Another line.
+The DATA section appears at the end
+of the file after the keyword.
