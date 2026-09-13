@@ -35,3 +35,6 @@ perlcritic --verbose 11 "$1"
 echo "Perl formatting (tidy)"
 # using -b to get a backup file
 perltidy -b "$1"
+
+echo "Perl POD checks"
+podchecker -warnings -warnings "$1"
