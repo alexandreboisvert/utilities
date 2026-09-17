@@ -41,7 +41,7 @@ def main():
         cmd.append("mediainfo")
         cmd.append("--full")
         cmd.append(file_path)
-        ok, mediainfo_text, stderr = run_command(cmd, 10)
+        ok, mediainfo_text, stderr = run_command(cmd, 15)
         if not ok:
             print("failure to run mediainfo {}".format(file_path))
             continue
