@@ -252,6 +252,7 @@ No one is immune to social engineering. And it's not just scams and security. Ma
 Something important to keep in mind is false equivalencies, especially in advertising.
 Cheap is not always economical. Fast is not always efficient. Easy is not always simple. Impressive is not always useful. Likely is not ever guaranteed. Possible is not always ready. Popular is not always good. Newer/bigger/expensive is not always better.
 There's so many times I've had someone intentionally twist their words to affect peoples judgement while covering their own ass.
-Lost time is not wasted."
+Lost time is not wasted.
+I just try to have a nice time despite knowing facts and information."
 
 echo "${quotes}" | shuf -n1
