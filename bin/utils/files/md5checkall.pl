@@ -4,8 +4,6 @@
 # MD5 Check All - Pure Perl Version
 ######################################################################
 
-# Digest::MD5
-
 ######################################################################
 # Uses
 ######################################################################
@@ -28,19 +26,12 @@ use v5.39;
 # See the command "perldoc perlvar"
 use English;
 
-# Get a detailled error message on script error.
-# The message contains explanations and links to reference material.
-# Useful in debug/development but, causes a severe performance impact.
-# use diagnostics;
-
 # Command line options, usually this module is part of Perl Core.
 use Getopt::Long qw(GetOptions);
 
-# Using the already available POD documentation for command line help.
-# This module is usually part of Perl Core.
+# This module (Pod::Usage) is usually part of Perl Core.
 # The module Pod::Usage does not play nice with the tainting
 # mechanism. Making it more simple.
-# use Pod::Usage qw(pod2usage);
 
 # Disabling Tainting Mechanism: File::Find, File::Spec do not play
 # nice when tainting is enabled.
