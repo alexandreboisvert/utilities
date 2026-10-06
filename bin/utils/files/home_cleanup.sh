@@ -18,6 +18,7 @@ items_to_remove=".adobe/
 .cache/mesa_shader_cache
 .cache/midori
 .cache/mpv
+.cache/nsxiv
 .cache/qtshadercache-x86_64-little_endian-lp64
 .cache/staticcheck
 .cache/sxiv
@@ -104,6 +105,7 @@ echo "Thumbnails Cleanup"
 find "${home_prefix}/.thumbnails" -type f -print -delete
 find "${home_prefix}/.cache/thumbnails" -type f -print -delete
 find "${home_prefix}/.cache/sxiv" -type f -print -delete
+find "${home_prefix}/.cache/nsxiv" -type f -print -delete
 
 echo "Golang Cache Cleanup"
 go clean -cache
